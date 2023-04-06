@@ -1,8 +1,9 @@
+import 'package:ecommerce_app/BagPage.dart';
+import 'package:ecommerce_app/FavoritesPage.dart';
 import 'package:ecommerce_app/HomePage.dart';
+import 'package:ecommerce_app/ProfilePage.dart';
 import 'package:ecommerce_app/ShopPage.dart';
 import 'package:flutter/material.dart';
-
-import 'ProductBox.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -18,9 +19,12 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  static List<Widget> _widgetPages = <Widget>[
+  static final List<Widget> _widgetPages = <Widget>[
     HomePage(),
     ShopPage(),
+    BagPage(),
+    FavoritesPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -28,15 +32,63 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xFFF9F9F9),
           ),
-          child: SingleChildScrollView(child: _widgetPages[_selectedIndex]),
+          child: SingleChildScrollView(
+            child: _widgetPages[_selectedIndex],
+          ),
         ),
       ),
       extendBody: true,
+      bottomSheet: _selectedIndex == 2
+          ? Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total amount:',
+                        style: TextStyle(
+                          color: Color(0xFF9B9B9B),
+                        ),
+                      ),
+                      Text(
+                        '\$124',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 15.0),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('CHECK OUT'),
+                      style: ElevatedButton.styleFrom(
+                        shape: StadiumBorder(),
+                        backgroundColor: Color(0xFFDB3022),
+                        padding: EdgeInsets.symmetric(vertical: 15.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          : SizedBox(),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(30), topLeft: Radius.circular(30)),
           boxShadow: [
@@ -44,7 +96,7 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30.0),
             topRight: Radius.circular(30.0),
           ),

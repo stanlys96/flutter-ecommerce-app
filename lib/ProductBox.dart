@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/StarsDummy.dart';
 import 'package:flutter/material.dart';
 
 class ProductBox extends StatelessWidget {
@@ -67,44 +68,7 @@ class ProductBox extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5.0),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'images/star_activated.png',
-                width: 14.0,
-                height: 14.0,
-              ),
-              Image.asset(
-                'images/star_activated.png',
-                width: 14.0,
-                height: 14.0,
-              ),
-              Image.asset(
-                'images/star_activated.png',
-                width: 14.0,
-                height: 14.0,
-              ),
-              Image.asset(
-                'images/star_activated.png',
-                width: 14.0,
-                height: 14.0,
-              ),
-              Image.asset(
-                'images/star_activated.png',
-                width: 14.0,
-                height: 14.0,
-              ),
-              Text(
-                '(10)',
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: Color(0xFF9B9B9B),
-                ),
-              )
-            ],
-          ),
+          StarsDummy(),
           SizedBox(height: 5.0),
           Text(
             'Dorothy Perkins',

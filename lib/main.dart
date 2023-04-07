@@ -1,5 +1,9 @@
+import 'package:ecommerce_app/InputBox.dart';
 import 'package:ecommerce_app/SignIn.dart';
+import 'package:ecommerce_app/SocialIconBox.dart';
+import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:developer';
 
 import 'MainPage.dart';
@@ -14,36 +18,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ProfileProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -89,96 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: 20.0,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(
                     height: 20.0,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(
                     height: 20.0,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(height: 20.0),
                   InkWell(
                     onTap: () {
@@ -231,51 +143,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              padding: EdgeInsets.all(10.0),
-                              child: new Icon(
-                                IconData(0xe255, fontFamily: 'MaterialIcons'),
-                              ),
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(5.0),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 3,
-                                    offset: Offset(
-                                        0, 1), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                            ),
+                            SocialIconBox(),
                             SizedBox(
                               width: 10.0,
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(5.0),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 3,
-                                    offset: Offset(
-                                        0, 1), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              padding: EdgeInsets.all(10.0),
-                              child: new Icon(
-                                IconData(0xe255, fontFamily: 'MaterialIcons'),
-                              ),
-                            ),
+                            SocialIconBox(),
                           ],
                         ),
                       )

@@ -89,30 +89,44 @@ class FavoriteProductBox extends StatelessWidget {
                             SizedBox(height: 5.0),
                             Row(
                               children: [
-                                Text(
-                                  'Color: ',
-                                  style: TextStyle(
-                                    color: Color(0xFF9B9B9B),
-                                    fontSize: 11.0,
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Color: ',
+                                    style: TextStyle(
+                                      color: Color(0xFF9B9B9B),
+                                      fontSize: 11.0,
+                                    ),
+                                    children: const <TextSpan>[
+                                      TextSpan(
+                                        text: 'Gray',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 11.0,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                Text(
-                                  'Blue',
-                                  style: TextStyle(fontSize: 11.0),
-                                ),
-                                SizedBox(
-                                  width: 10.0,
-                                ),
-                                Text(
-                                  'Size: ',
-                                  style: TextStyle(
-                                    color: Color(0xFF9B9B9B),
-                                    fontSize: 11.0,
+                                SizedBox(width: 20.0),
+                                RichText(
+                                  text: TextSpan(
+                                    text: 'Size: ',
+                                    style: TextStyle(
+                                      color: Color(0xFF9B9B9B),
+                                      fontSize: 11.0,
+                                    ),
+                                    children: const <TextSpan>[
+                                      TextSpan(
+                                        text: 'L',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                          fontSize: 11.0,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                Text(
-                                  'L',
-                                  style: TextStyle(fontSize: 11.0),
                                 ),
                               ],
                             ),

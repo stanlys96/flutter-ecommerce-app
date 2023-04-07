@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/ForgotPassword.dart';
+import 'package:ecommerce_app/InputBox.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 
@@ -51,65 +52,11 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(
                     height: 20.0,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(
                     height: 20.0,
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(height: 20.0),
                   InkWell(
                     onTap: () {

@@ -37,54 +37,57 @@ class _ShopPageState extends State<ShopPage> {
 
   @override
   Widget build(BuildContext context) {
-    return currentState == 'shop'
-        ? Container(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFDB3022),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'SUMMER SALES',
-                        style: TextStyle(
-                          fontSize: 24.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: currentState == 'shop'
+          ? Container(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFDB3022),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'SUMMER SALES',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 5.0),
-                      Text(
-                        'Up to 50% off',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 16.0),
-                for (ShopCategory categoryData in shopCategoryData) ...[
-                  ShopCategoryBox(
-                    changeCurrentState: changeCurrentState,
-                    title: categoryData.title,
-                    imgUrl: categoryData.imgUrl,
+                        SizedBox(height: 5.0),
+                        Text(
+                          'Up to 50% off',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   SizedBox(height: 16.0),
+                  for (ShopCategory categoryData in shopCategoryData) ...[
+                    ShopCategoryBox(
+                      changeCurrentState: changeCurrentState,
+                      title: categoryData.title,
+                      imgUrl: categoryData.imgUrl,
+                    ),
+                    SizedBox(height: 16.0),
+                  ],
                 ],
-              ],
-            ),
-          )
-        : ShopProductsPage(
-            changeCurrentState: changeCurrentState, currentState: currentState);
+              ),
+            )
+          : ShopProductsPage(
+              changeCurrentState: changeCurrentState,
+              currentState: currentState),
+    );
   }
 }

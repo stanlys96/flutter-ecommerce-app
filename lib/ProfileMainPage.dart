@@ -89,7 +89,9 @@ class ProfileMainPage extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: SizedBox(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/sign-up');
+                },
                 child: Text('Log Out'),
                 style: ElevatedButton.styleFrom(
                   shape: StadiumBorder(),

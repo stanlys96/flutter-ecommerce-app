@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
+  static const String routeName = '/main';
+
   @override
   State<MainPage> createState() => _MainPageState();
 }

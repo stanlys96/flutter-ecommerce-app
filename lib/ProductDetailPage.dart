@@ -2,7 +2,7 @@ import 'package:ecommerce_app/StarsDummy.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  const ProductDetailsPage({super.key});
+  static const String routeName = '/product-detail';
 
   @override
   Widget build(BuildContext context) {

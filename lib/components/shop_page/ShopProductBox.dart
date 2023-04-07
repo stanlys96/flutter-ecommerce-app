@@ -7,12 +7,7 @@ class ShopProductBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProductDetailsPage(),
-          ),
-        );
+        Navigator.of(context).pushNamed('/product-detail');
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

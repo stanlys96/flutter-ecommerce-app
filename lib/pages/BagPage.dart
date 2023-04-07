@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/BagProductBox.dart';
+import 'package:ecommerce_app/components/bag_page/BagProductBox.dart';
 import 'package:flutter/material.dart';
 
 class BagPage extends StatelessWidget {

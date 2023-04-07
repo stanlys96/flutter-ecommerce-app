@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/BagProductBox.dart';
-import 'package:ecommerce_app/OrderDetailBox.dart';
+import 'package:ecommerce_app/components/profile_page/OrderDetailBox.dart';
+
 import 'package:flutter/material.dart';
 
 class MyOrderDetails extends StatelessWidget {

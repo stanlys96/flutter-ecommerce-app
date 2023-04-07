@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/StarsDummy.dart';
+import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:flutter/material.dart';
 
 class ProductBox extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/MyOrderCard.dart';
+import 'package:ecommerce_app/components/profile_page/MyOrderCard.dart';
 import 'package:flutter/material.dart';
 
 class MyOrdersBox extends StatelessWidget {

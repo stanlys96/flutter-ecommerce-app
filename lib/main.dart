@@ -1,7 +1,8 @@
-import 'package:ecommerce_app/MainPage.dart';
-import 'package:ecommerce_app/ProductDetailPage.dart';
-import 'package:ecommerce_app/SignIn.dart';
-import 'package:ecommerce_app/SignUp.dart';
+import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
+import 'package:ecommerce_app/pages/MainPage.dart';
+import 'package:ecommerce_app/pages/ProductDetailPage.dart';
+import 'package:ecommerce_app/pages/SignIn.dart';
+import 'package:ecommerce_app/pages/SignUp.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           SignInPage.routeName: (context) => SignInPage(),
           MainPage.routeName: (context) => MainPage(),
           ProductDetailsPage.routeName: (context) => ProductDetailsPage(),
+          ForgotPasswordPage.routeName: (context) => ForgotPasswordPage(),
         },
       ),
     );

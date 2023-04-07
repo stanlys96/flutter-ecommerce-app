@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/ShopCategoryBox.dart';
-import 'package:ecommerce_app/ShopProductsPage.dart';
+import 'package:ecommerce_app/components/shop_page/ShopCategoryBox.dart';
+import 'package:ecommerce_app/pages/ShopProductsPage.dart';
 import 'package:flutter/material.dart';
 
 class ShopCategory {

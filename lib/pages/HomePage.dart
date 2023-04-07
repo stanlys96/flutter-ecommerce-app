@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/ProductBox.dart';
+import 'package:ecommerce_app/components/home_page/ProductBox.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {

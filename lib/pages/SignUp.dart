@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/MainPage.dart';
+import 'package:ecommerce_app/pages/MainPage.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/InputBox.dart';
-import 'package:ecommerce_app/SocialIconBox.dart';
+import 'package:ecommerce_app/components/InputBox.dart';
+import 'package:ecommerce_app/components/SocialIconBox.dart';
 
 class SignUpPage extends StatefulWidget {
   static const String routeName = '/sign-up';

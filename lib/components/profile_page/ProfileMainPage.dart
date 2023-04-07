@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/ProfileCategoryBox.dart';
+import 'package:ecommerce_app/components/profile_page/ProfileCategoryBox.dart';
 
 class ProfileMainPage extends StatelessWidget {
   final Function(String, BuildContext) setCurrentPage;

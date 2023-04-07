@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/MyOrders.dart';
-import 'package:ecommerce_app/ProfileMainPage.dart';
-import 'package:ecommerce_app/Settings.dart';
+import 'package:ecommerce_app/components/profile_page/ProfileMainPage.dart';
+import 'package:ecommerce_app/components/profile_page/MyOrders.dart';
+import 'package:ecommerce_app/pages/Settings.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

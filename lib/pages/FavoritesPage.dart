@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/FavoriteProductBox.dart';
+import 'package:ecommerce_app/components/favorites_page/FavoriteProductBox.dart';
 import 'package:flutter/material.dart';
 
 class FavoritesPage extends StatelessWidget {

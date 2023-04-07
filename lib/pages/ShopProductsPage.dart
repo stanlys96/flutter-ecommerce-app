@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/ShopProductBox.dart';
+import 'package:ecommerce_app/components/shop_page/ShopProductBox.dart';
 import 'package:flutter/material.dart';
 
 class ShopProductsPage extends StatelessWidget {

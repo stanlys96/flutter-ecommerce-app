@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/InputBox.dart';
+import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {

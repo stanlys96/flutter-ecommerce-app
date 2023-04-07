@@ -1,6 +1,5 @@
-import 'package:ecommerce_app/MyOrderCard.dart';
-import 'package:ecommerce_app/MyOrderDetails.dart';
-import 'package:ecommerce_app/MyOrdersBox.dart';
+import 'package:ecommerce_app/components/profile_page/MyOrderDetails.dart';
+import 'package:ecommerce_app/components/profile_page/MyOrdersBox.dart';
 import 'package:flutter/material.dart';
 
 class MyOrders extends StatefulWidget {

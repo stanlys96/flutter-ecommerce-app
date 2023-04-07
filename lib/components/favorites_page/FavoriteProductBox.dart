@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/ProductDetailPage.dart';
+import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/StarsDummy.dart';
+import 'package:ecommerce_app/components/StarsDummy.dart';
 
 class FavoriteProductBox extends StatelessWidget {
   @override

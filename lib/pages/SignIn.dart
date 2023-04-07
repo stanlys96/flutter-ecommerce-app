@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/ForgotPassword.dart';
-import 'package:ecommerce_app/InputBox.dart';
+import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
+import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 
@@ -54,12 +54,7 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(height: 20.0),
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ForgotPasswordPage(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamed('/forgot-password');
                     },
                     child: Text(
                       'Forgot your password?',

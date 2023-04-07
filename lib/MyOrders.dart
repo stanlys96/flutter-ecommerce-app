@@ -4,7 +4,7 @@ import 'package:ecommerce_app/MyOrdersBox.dart';
 import 'package:flutter/material.dart';
 
 class MyOrders extends StatefulWidget {
-  final Function setCurrentPage;
+  final Function(String, BuildContext) setCurrentPage;
 
   MyOrders({required this.setCurrentPage});
 

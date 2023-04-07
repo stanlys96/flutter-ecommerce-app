@@ -2,7 +2,7 @@ import 'package:ecommerce_app/MyOrderCard.dart';
 import 'package:flutter/material.dart';
 
 class MyOrdersBox extends StatelessWidget {
-  final Function setCurrentPage;
+  final Function(String, BuildContext) setCurrentPage;
   final Function setCurrentCategory;
   final Function setCurrentState;
   final String currentCategory;
@@ -26,7 +26,7 @@ class MyOrdersBox extends StatelessWidget {
           width: double.infinity,
           child: GestureDetector(
             onTap: () {
-              setCurrentPage('profile');
+              setCurrentPage('Profile', context);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

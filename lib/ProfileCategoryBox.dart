@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileCategoryBox extends StatelessWidget {
   final String title;
   final String subTitle;
-  final Function setCurrentPage;
+  final Function(String, BuildContext) setCurrentPage;
 
   ProfileCategoryBox({
     required this.title,
@@ -15,7 +15,7 @@ class ProfileCategoryBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setCurrentPage(title);
+        setCurrentPage(title, context);
       },
       child: Container(
         padding: EdgeInsets.all(16.0),

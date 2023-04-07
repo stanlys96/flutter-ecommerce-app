@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app/ProfileCategoryBox.dart';
 
 class ProfileMainPage extends StatelessWidget {
-  final Function setCurrentPage;
+  final Function(String, BuildContext) setCurrentPage;
 
   ProfileMainPage({required this.setCurrentPage});
 
@@ -83,6 +83,23 @@ class ProfileMainPage extends StatelessWidget {
             title: 'Settings',
             subTitle: 'Notifications, password',
             setCurrentPage: setCurrentPage),
+        Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.7,
+            padding: EdgeInsets.all(16.0),
+            child: SizedBox(
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('Log Out'),
+                style: ElevatedButton.styleFrom(
+                  shape: StadiumBorder(),
+                  backgroundColor: Color(0xFFDB3022),
+                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                ),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

@@ -14,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     ProfileProvider profileProvider = Provider.of<ProfileProvider>(context);
-    if (profileProvider.currentPage == 'profile') {
+    if (profileProvider.currentPage == 'Profile') {
       return ProfileMainPage(
         setCurrentPage: profileProvider.setCurrentPage,
       );

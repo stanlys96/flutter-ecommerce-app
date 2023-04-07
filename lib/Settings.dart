@@ -2,7 +2,7 @@ import 'package:ecommerce_app/InputBox.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {
-  final Function setCurrentPage;
+  final Function(String, BuildContext) setCurrentPage;
   const Settings({required this.setCurrentPage});
 
   @override
@@ -18,7 +18,7 @@ class Settings extends StatelessWidget {
           width: double.infinity,
           child: GestureDetector(
             onTap: () {
-              setCurrentPage('profile');
+              setCurrentPage('Profile', context);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

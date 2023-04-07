@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 
@@ -8,16 +9,13 @@ class ForgotPasswordPage extends StatefulWidget {
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-  int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.white),
         title: Text("Fashionee"),
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: Colors.red,
       ),
       body: Container(
         padding: EdgeInsetsDirectional.all(20.0),
@@ -48,34 +46,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   const Text(
                       'Please, enter your email address. You will receive a link to create a new password via email.'),
                   SizedBox(height: 10.0),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 3,
-                          offset: Offset(0, 1), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Name'),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Mr. Muffin'),
-                      ],
-                    ),
-                  ),
+                  InputBox(),
                   SizedBox(height: 20.0),
                   SizedBox(
                     width: double.infinity,

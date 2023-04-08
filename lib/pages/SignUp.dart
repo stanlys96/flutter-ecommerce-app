@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/pages/MainPage.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:ecommerce_app/components/SocialIconBox.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpPage extends StatefulWidget {
   static const String routeName = '/sign-up';
@@ -22,7 +22,12 @@ class _SignUpPageState extends State<SignUpPage> {
         // elevation: 0,
       ),
       body: Container(
-        padding: EdgeInsetsDirectional.all(20.0),
+        padding: EdgeInsets.only(
+          top: 20.0,
+          left: 20.0,
+          right: 20.0,
+          bottom: 50.0,
+        ),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color(0xFFF9F9F9),
@@ -61,9 +66,23 @@ class _SignUpPageState extends State<SignUpPage> {
                     onTap: () {
                       Navigator.of(context).pushNamed('/sign-in');
                     },
-                    child: Text(
-                      'Already have an account?',
-                      textAlign: TextAlign.right,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Already have an account?',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        FaIcon(
+                          FontAwesomeIcons.arrowRight,
+                          size: 20.0,
+                          color: Colors.red,
+                        )
+                      ],
                     ),
                   ),
                   SizedBox(height: 20.0),
@@ -98,11 +117,17 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SocialIconBox(),
-                            SizedBox(
-                              width: 10.0,
+                            SocialIconBox(
+                              icon: FontAwesomeIcons.google,
+                              iconColor: Colors.green,
                             ),
-                            SocialIconBox(),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            SocialIconBox(
+                              icon: FontAwesomeIcons.facebook,
+                              iconColor: Colors.blue,
+                            ),
                           ],
                         ),
                       )

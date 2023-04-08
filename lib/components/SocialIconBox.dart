@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SocialIconBox extends StatelessWidget {
-  const SocialIconBox({
-    super.key,
-  });
+  final IconData icon;
+  final Color iconColor;
+
+  const SocialIconBox({required this.icon, this.iconColor = Colors.black});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10.0),
-      child: new Icon(
-        IconData(0xe255, fontFamily: 'MaterialIcons'),
+      child: FaIcon(
+        icon,
+        color: iconColor,
       ),
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),

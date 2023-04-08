@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FavoriteProductBox extends StatelessWidget {
   @override
@@ -160,8 +161,8 @@ class FavoriteProductBox extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: new Icon(
-                    IconData(0xf060f, fontFamily: 'MaterialIcons'),
+                  child: FaIcon(
+                    FontAwesomeIcons.heart,
                     color: Colors.white,
                   ),
                 ),

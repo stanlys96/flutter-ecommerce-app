@@ -5,6 +5,7 @@ import 'package:ecommerce_app/pages/ProfilePage.dart';
 import 'package:ecommerce_app/pages/ShopPage.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
@@ -126,23 +127,33 @@ class _MainPageState extends State<MainPage> {
               type: BottomNavigationBarType.fixed,
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
+                  icon: FaIcon(
+                    FontAwesomeIcons.house,
+                  ),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.business),
+                  icon: FaIcon(
+                    FontAwesomeIcons.shopify,
+                  ),
                   label: 'Shop',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.shop),
+                  icon: FaIcon(
+                    FontAwesomeIcons.cartShopping,
+                  ),
                   label: 'Bag',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.heart_broken),
+                  icon: FaIcon(
+                    FontAwesomeIcons.solidHeart,
+                  ),
                   label: 'Favorites',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
+                  icon: FaIcon(
+                    FontAwesomeIcons.solidUser,
+                  ),
                   label: 'Profile',
                 ),
               ],

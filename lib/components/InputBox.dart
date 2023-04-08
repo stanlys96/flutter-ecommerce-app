@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 
 class InputBox extends StatelessWidget {
+  final String title;
+  final String placeholder;
+  final bool isPassword;
+  final TextEditingController controller;
+
+  InputBox({
+    required this.title,
+    this.placeholder = '',
+    this.isPassword = false,
+    required this.controller,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +36,7 @@ class InputBox extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Full Name',
+            title,
             style: TextStyle(
               color: Color(0xFF9B9B9B),
             ),
@@ -33,13 +45,15 @@ class InputBox extends StatelessWidget {
             height: 5.0,
           ),
           TextField(
+            controller: controller,
+            obscureText: isPassword,
             decoration: InputDecoration(
               hintStyle: TextStyle(
                 color: Colors.grey.withOpacity(0.35),
               ),
               isDense: true,
               border: InputBorder.none,
-              hintText: 'Walao',
+              hintText: placeholder,
             ),
           ),
         ],

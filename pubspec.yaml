@@ -38,6 +38,7 @@ dependencies:
   another_flushbar: ^1.12.29
   font_awesome_flutter: ^10.4.0
   dio: ^5.1.1
+  lottie: ^2.3.2
 
 dev_dependencies:
   flutter_test:

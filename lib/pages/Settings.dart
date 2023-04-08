@@ -7,6 +7,9 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -54,9 +57,15 @@ class Settings extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16.0),
-              InputBox(),
+              InputBox(
+                title: "Full Name",
+                controller: nameController,
+              ),
               SizedBox(height: 16.0),
-              InputBox(),
+              InputBox(
+                title: "Email",
+                controller: emailController,
+              ),
               SizedBox(height: 32.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +91,10 @@ class Settings extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 16.0),
-              InputBox(),
+              InputBox(
+                title: "Password",
+                controller: passwordController,
+              ),
             ],
           ),
         ),

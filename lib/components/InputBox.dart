@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class InputBox extends StatelessWidget {
-  const InputBox({
-    super.key,
-  });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,13 +30,16 @@ class InputBox extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10.0,
+            height: 5.0,
           ),
-          Text(
-            'Mr. Muffin',
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
+          TextField(
+            decoration: InputDecoration(
+              hintStyle: TextStyle(
+                color: Colors.grey.withOpacity(0.35),
+              ),
+              isDense: true,
+              border: InputBorder.none,
+              hintText: 'Walao',
             ),
           ),
         ],

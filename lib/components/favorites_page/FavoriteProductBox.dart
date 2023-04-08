@@ -150,7 +150,7 @@ class FavoriteProductBox extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
-                    color: Color(0xFFDB3022),
+                    color: Colors.white,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -162,8 +162,8 @@ class FavoriteProductBox extends StatelessWidget {
                     ],
                   ),
                   child: FaIcon(
-                    FontAwesomeIcons.heart,
-                    color: Colors.white,
+                    FontAwesomeIcons.solidHeart,
+                    color: Color(0xFFDB3022),
                   ),
                 ),
               )

@@ -1,4 +1,6 @@
+import 'package:ecommerce_app/api/ApiService.dart';
 import 'package:ecommerce_app/components/SocialIconBox.dart';
+import 'package:ecommerce_app/models/Login.dart';
 import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
 import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
@@ -11,13 +13,46 @@ import 'package:provider/provider.dart';
 class SignInPage extends StatefulWidget {
   static const String routeName = '/sign-in';
 
+  final AnimationController? blurController;
+
+  SignInPage({this.blurController = null});
+
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
+  ApiService apiService = ApiService();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  void handleSignIn(AuthProvider authProvider, BuildContext context) async {
+    authProvider.setLoading(true);
+    try {
+      LoginModel? result =
+          await apiService.login(emailController.text, passwordController.text);
+      authProvider.setLoading(false);
+
+      if (result?.msg == 'success') {
+        emailController.clear();
+        passwordController.clear();
+        authProvider.setCurrentPage("Sign Up", context);
+        if (mounted) {
+          Navigator.of(context).pushNamed('/main');
+        }
+      }
+    } catch (e) {
+      print(e);
+      authProvider.setLoading(false);
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +60,7 @@ class _SignInPageState extends State<SignInPage> {
     return Visibility(
       visible: authProvider.currentPage == 'Sign In',
       child: Opacity(
-        opacity: 1,
+        opacity: 1 - (widget.blurController?.value ?? 0),
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(
@@ -75,6 +110,7 @@ class _SignInPageState extends State<SignInPage> {
                       SizedBox(height: 20.0),
                       InkWell(
                         onTap: () {
+                          widget.blurController?.forward();
                           authProvider.setCurrentPage(
                               'Forgot Password', context);
                         },
@@ -101,7 +137,9 @@ class _SignInPageState extends State<SignInPage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            handleSignIn(authProvider, context);
+                          },
                           child: Text('Sign In'),
                           style: ElevatedButton.styleFrom(
                             shape: StadiumBorder(),

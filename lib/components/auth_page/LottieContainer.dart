@@ -29,6 +29,69 @@ class _LottieContainerState extends State<LottieContainer> {
           ),
         ),
       );
+    } else if (authProvider.success) {
+      return Stack(
+        alignment: AlignmentDirectional.topEnd,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black54,
+            ),
+            height: double.infinity,
+            width: double.infinity,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Lottie.asset(
+                    'images/success.json',
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(
+                          40.0,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      'Register Successful!',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () async {
+              await authProvider.setSuccess(false);
+              if (mounted && authProvider.currentPage == "Sign Up") {
+                authProvider.setCurrentPage("Sign In", context);
+              }
+            },
+            child: Container(
+              margin: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
+            ),
+          )
+        ],
+      );
     } else {
       return Container();
     }

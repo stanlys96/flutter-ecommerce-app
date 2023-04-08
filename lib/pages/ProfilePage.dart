@@ -13,21 +13,15 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    ProfileProvider profileProvider = Provider.of<ProfileProvider>(context);
-    if (profileProvider.currentPage == 'Profile') {
-      return ProfileMainPage(
-        setCurrentPage: profileProvider.setCurrentPage,
+    return Consumer<ProfileProvider>(
+        builder: (context, profileProvider, child) {
+      return Stack(
+        children: [
+          ProfileMainPage(),
+          MyOrders(),
+          Settings(),
+        ],
       );
-    } else if (profileProvider.currentPage == 'My Orders') {
-      return MyOrders(
-        setCurrentPage: profileProvider.setCurrentPage,
-      );
-    } else if (profileProvider.currentPage == 'Settings') {
-      return Settings(
-        setCurrentPage: profileProvider.setCurrentPage,
-      );
-    } else {
-      return SizedBox();
-    }
+    });
   }
 }

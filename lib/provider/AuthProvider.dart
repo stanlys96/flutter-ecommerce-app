@@ -5,6 +5,7 @@ class AuthProvider extends ChangeNotifier {
 
   String currentPage = 'Sign Up';
   bool loading = false;
+  bool success = false;
 
   void setCurrentPage(String newValue, BuildContext context) {
     currentPage = newValue;
@@ -13,6 +14,11 @@ class AuthProvider extends ChangeNotifier {
 
   void setLoading(bool newValue) {
     loading = newValue;
+    notifyListeners();
+  }
+
+  Future<void> setSuccess(bool newValue) async {
+    success = newValue;
     notifyListeners();
   }
 }

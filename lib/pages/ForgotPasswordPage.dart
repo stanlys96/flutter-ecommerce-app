@@ -7,6 +7,10 @@ import 'package:provider/provider.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   static const routeName = "/forgot-password";
+
+  final AnimationController? blurController;
+
+  ForgotPasswordPage({this.blurController = null});
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
 }
@@ -20,7 +24,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return Visibility(
       visible: authProvider.currentPage == 'Forgot Password',
       child: Opacity(
-        opacity: 1,
+        opacity: 1 - (widget.blurController?.value ?? 0),
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsetsDirectional.all(20.0),

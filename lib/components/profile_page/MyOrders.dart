@@ -1,12 +1,10 @@
 import 'package:ecommerce_app/components/profile_page/MyOrderDetails.dart';
 import 'package:ecommerce_app/components/profile_page/MyOrdersBox.dart';
+import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyOrders extends StatefulWidget {
-  final Function(String, BuildContext) setCurrentPage;
-
-  MyOrders({required this.setCurrentPage});
-
   @override
   State<MyOrders> createState() => _MyOrdersState();
 }
@@ -40,16 +38,23 @@ class _MyOrdersState extends State<MyOrders> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      controller: scrollController,
-      child: currentState == 'Orders'
-          ? MyOrdersBox(
-              setCurrentPage: widget.setCurrentPage,
-              setCurrentCategory: setCurrentCategory,
-              setCurrentState: setCurrentState,
-              currentCategory: currentCategory,
-            )
-          : MyOrderDetails(setCurrentState: setCurrentState),
+    ProfileProvider profileProvider = Provider.of<ProfileProvider>(context);
+    return Visibility(
+      visible: profileProvider.currentPage == "My Orders",
+      child: Opacity(
+        opacity: 1,
+        child: SingleChildScrollView(
+          controller: scrollController,
+          child: currentState == 'Orders'
+              ? MyOrdersBox(
+                  setCurrentPage: profileProvider.setCurrentPage,
+                  setCurrentCategory: setCurrentCategory,
+                  setCurrentState: setCurrentState,
+                  currentCategory: currentCategory,
+                )
+              : MyOrderDetails(setCurrentState: setCurrentState),
+        ),
+      ),
     );
   }
 }

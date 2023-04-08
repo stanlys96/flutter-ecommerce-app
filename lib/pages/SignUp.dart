@@ -9,6 +9,10 @@ import 'package:provider/provider.dart';
 class SignUpPage extends StatefulWidget {
   static const String routeName = '/sign-up';
 
+  final AnimationController? blurController;
+
+  SignUpPage({this.blurController = null});
+
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
@@ -24,11 +28,23 @@ class _SignUpPageState extends State<SignUpPage> {
     try {
       await apiService.register(
           nameController.text, emailController.text, passwordController.text);
+      nameController.clear();
+      emailController.clear();
+      passwordController.clear();
       authProvider.setLoading(false);
+      authProvider.setSuccess(true);
     } catch (e) {
       print(e);
       authProvider.setLoading(false);
     }
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -37,7 +53,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Visibility(
       visible: authProvider.currentPage == 'Sign Up',
       child: Opacity(
-        opacity: 1,
+        opacity: 1 - (widget.blurController?.value ?? 0),
         child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height - 56.0,
@@ -96,6 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         SizedBox(height: 20.0),
                         InkWell(
                           onTap: () {
+                            widget.blurController?.forward();
                             authProvider.setCurrentPage('Sign In', context);
                           },
                           child: Row(
@@ -123,7 +140,6 @@ class _SignUpPageState extends State<SignUpPage> {
                           child: ElevatedButton(
                             onPressed: () {
                               handleSignUp(authProvider);
-                              // Navigator.of(context).pushNamed('/main');
                             },
                             child: Text('Sign Up'),
                             style: ElevatedButton.styleFrom(

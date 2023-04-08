@@ -17,6 +17,9 @@ class _AuthPageState extends State<AuthPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  Animation<double>? _blurAnimation;
+  AnimationController? _blurController;
+
   void goBack(AuthProvider authProvider, BuildContext context) {
     if (authProvider.currentPage == 'Sign In') {
       authProvider.setCurrentPage('Sign Up', context);
@@ -32,6 +35,7 @@ class _AuthPageState extends State<AuthPage> {
       return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           leading: authProvider.currentPage != 'Sign Up'
               ? InkWell(
                   onTap: () {
@@ -49,9 +53,15 @@ class _AuthPageState extends State<AuthPage> {
         ),
         body: Stack(
           children: [
-            ForgotPasswordPage(),
-            SignInPage(),
-            SignUpPage(),
+            ForgotPasswordPage(
+              blurController: _blurController,
+            ),
+            SignInPage(
+              blurController: _blurController,
+            ),
+            SignUpPage(
+              blurController: _blurController,
+            ),
             LottieContainer(),
           ],
         ),

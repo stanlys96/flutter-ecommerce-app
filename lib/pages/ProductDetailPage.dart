@@ -1,17 +1,21 @@
 import 'package:ecommerce_app/components/StarsDummy.dart';
+import 'package:ecommerce_app/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   static const String routeName = '/product-detail';
 
+  Product product = Product();
+
   @override
   Widget build(BuildContext context) {
+    product = ModalRoute.of(context)!.settings.arguments as Product;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text(
-          "Short Dress",
+          product.name ?? "",
           style: TextStyle(
             color: Colors.black,
           ),
@@ -29,11 +33,12 @@ class ProductDetailsPage extends StatelessWidget {
                 height: 413.0,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
+                  itemCount: product.imageDetailUrl?.length ?? 0,
                   itemBuilder: (context, index) {
+                    String currentImage = product.imageDetailUrl?[index] ?? "";
                     return Row(
                       children: [
-                        Image.asset('images/short_dress.png'),
+                        Image.asset(currentImage),
                         SizedBox(width: 10),
                       ],
                     );
@@ -125,7 +130,7 @@ class ProductDetailsPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'H&M',
+                              product.name ?? "",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 24.0,
@@ -134,7 +139,7 @@ class ProductDetailsPage extends StatelessWidget {
                             ),
                             SizedBox(height: 5.0),
                             Text(
-                              'Short black dress',
+                              product.subtitle ?? "",
                               style: TextStyle(
                                 fontSize: 11.0,
                                 color: Color(0xFF9B9B9B),
@@ -143,7 +148,7 @@ class ProductDetailsPage extends StatelessWidget {
                           ],
                         ),
                         Text(
-                          '\$19.99',
+                          '\$${((int.tryParse(product.price ?? "0") ?? 0) - (int.tryParse(product.discount ?? "0") ?? 0)).toString()}.00',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 24.0,
@@ -156,7 +161,7 @@ class ProductDetailsPage extends StatelessWidget {
                     StarsDummy(),
                     SizedBox(height: 10.0),
                     Text(
-                      'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+                      product.description ?? "",
                       style: TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,

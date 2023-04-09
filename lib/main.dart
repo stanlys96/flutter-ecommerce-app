@@ -4,6 +4,7 @@ import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:ecommerce_app/pages/SignIn.dart';
 import 'package:ecommerce_app/pages/SignUp.dart';
 import 'package:ecommerce_app/pages/UserAuthPage.dart';
+import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HomeProvider(),
         ),
       ],
       child: MaterialApp(

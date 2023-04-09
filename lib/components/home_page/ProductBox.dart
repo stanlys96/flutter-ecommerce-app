@@ -1,22 +1,27 @@
 import 'package:ecommerce_app/components/StarsDummy.dart';
+import 'package:ecommerce_app/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProductBox extends StatelessWidget {
   final int index;
   final int totalCount;
+  final Product product;
 
   const ProductBox({
-    super.key,
     required this.index,
     required this.totalCount,
+    required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed('/product-detail');
+        Navigator.of(context).pushNamed(
+          '/product-detail',
+          arguments: product,
+        );
       },
       child: Container(
         margin: index != totalCount - 1
@@ -31,7 +36,7 @@ class ProductBox extends StatelessWidget {
                   clipBehavior: Clip.none,
                   alignment: Alignment.bottomRight,
                   children: [
-                    Image.asset('images/evening_dress.png'),
+                    Image.asset(product.imageUrl ?? ""),
                     Positioned(
                       bottom: -22.5,
                       child: Container(
@@ -60,11 +65,13 @@ class ProductBox extends StatelessWidget {
                   margin: EdgeInsets.all(5.0),
                   padding: EdgeInsets.all(5.0),
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    color: product.category?.toUpperCase() == "SALE"
+                        ? Colors.red
+                        : Colors.black,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Text(
-                    'NEW',
+                    product.category?.toUpperCase() ?? "",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -77,7 +84,7 @@ class ProductBox extends StatelessWidget {
             StarsDummy(),
             SizedBox(height: 5.0),
             Text(
-              'Dorothy Perkins',
+              product.subtitle ?? "",
               style: TextStyle(
                 fontSize: 12.0,
                 color: Color(0xFF9B9B9B),
@@ -85,7 +92,7 @@ class ProductBox extends StatelessWidget {
             ),
             SizedBox(height: 5.0),
             Text(
-              'Evening Dress',
+              product.name ?? "",
               style: TextStyle(
                 fontSize: 16.0,
                 color: Colors.black,
@@ -96,7 +103,7 @@ class ProductBox extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '\$15',
+                  '\$${product.price.toString()}',
                   style: TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
@@ -106,7 +113,7 @@ class ProductBox extends StatelessWidget {
                 ),
                 SizedBox(width: 5.0),
                 Text(
-                  '\$12',
+                  '\$${((int.tryParse(product.price ?? "0") ?? 0) - (int.tryParse(product.discount ?? "0") ?? 0)).toString()}',
                   style: TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,

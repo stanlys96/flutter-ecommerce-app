@@ -4,6 +4,8 @@ import 'package:ecommerce_app/models/Login.dart';
 import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
 import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
+import 'package:ecommerce_app/provider/MainProvider.dart';
+import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:developer';
@@ -26,7 +28,8 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void handleSignIn(AuthProvider authProvider, BuildContext context) async {
+  void handleSignIn(AuthProvider authProvider, MainProvider mainProvider,
+      BuildContext context) async {
     authProvider.setLoading(true);
     try {
       LoginModel? result =
@@ -36,8 +39,10 @@ class _SignInPageState extends State<SignInPage> {
       if (result?.msg == 'success') {
         emailController.clear();
         passwordController.clear();
-        authProvider.setCurrentPage("Sign Up", context);
+        authProvider.setCurrentPage("Sign Up");
         if (mounted) {
+          mainProvider.setCurrentPage(PageState.HOME);
+          mainProvider.setPreviousPage(PageState.HOME);
           Navigator.of(context).pushNamed('/main');
         }
       }
@@ -57,6 +62,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    MainProvider mainProvider = Provider.of<MainProvider>(context);
     return Visibility(
       visible: authProvider.currentPage == 'Sign In',
       child: Opacity(
@@ -111,8 +117,7 @@ class _SignInPageState extends State<SignInPage> {
                       InkWell(
                         onTap: () {
                           widget.blurController?.forward();
-                          authProvider.setCurrentPage(
-                              'Forgot Password', context);
+                          authProvider.setCurrentPage('Forgot Password');
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -138,7 +143,7 @@ class _SignInPageState extends State<SignInPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            handleSignIn(authProvider, context);
+                            handleSignIn(authProvider, mainProvider, context);
                           },
                           child: Text('Sign In'),
                           style: ElevatedButton.styleFrom(

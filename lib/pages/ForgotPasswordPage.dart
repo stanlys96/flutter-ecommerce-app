@@ -58,6 +58,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       InputBox(
                         title: "Email",
                         controller: emailController,
+                        placeholder: "Enter Email",
                       ),
                       SizedBox(height: 20.0),
                       SizedBox(

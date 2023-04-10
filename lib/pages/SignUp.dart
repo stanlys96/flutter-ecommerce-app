@@ -113,7 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         InkWell(
                           onTap: () {
                             widget.blurController?.forward();
-                            authProvider.setCurrentPage('Sign In', context);
+                            authProvider.setCurrentPage('Sign In');
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,

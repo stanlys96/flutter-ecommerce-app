@@ -74,7 +74,7 @@ class _LottieContainerState extends State<LottieContainer> {
             onTap: () async {
               await authProvider.setSuccess(false);
               if (mounted && authProvider.currentPage == "Sign Up") {
-                authProvider.setCurrentPage("Sign In", context);
+                authProvider.setCurrentPage("Sign In");
               }
             },
             child: Container(

@@ -2,11 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:another_flushbar/flushbar.dart';
 
 class ProfileProvider extends ChangeNotifier {
-  List<String> availablePages = ['Profile', 'Settings', 'My Orders'];
+  List<String> availablePages = [
+    'Profile',
+    'Settings',
+    'My Orders',
+    'Idle',
+    'Order Details'
+  ];
+
+  String page = "Idle";
 
   String currentPage = 'Profile';
 
+  void switchState() {
+    if (!availablePages.contains(currentPage) || !availablePages.contains(page))
+      return;
+    currentPage = page;
+    page = "Idle";
+  }
+
   void setCurrentPage(String newValue, BuildContext context) async {
+    print(newValue);
+    print("???");
     if (!availablePages.contains(newValue)) {
       await Flushbar(
         flushbarPosition: FlushbarPosition.TOP,
@@ -16,7 +33,8 @@ class ProfileProvider extends ChangeNotifier {
       ).show(context);
       return;
     }
-    currentPage = newValue;
+    page = newValue;
+    print(page);
     notifyListeners();
   }
 }

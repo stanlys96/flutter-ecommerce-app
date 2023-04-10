@@ -1,13 +1,25 @@
 import 'package:ecommerce_app/pages/ProductDetailPage.dart';
+import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class FavoriteProductBox extends StatelessWidget {
+  final Function setCurrentPage;
+  final Function setPreviousPage;
+
+  FavoriteProductBox({
+    required this.setCurrentPage,
+    required this.setPreviousPage,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        setCurrentPage(PageState.PRODUCT_DETAILS);
+        setPreviousPage(PageState.FAVORITES);
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

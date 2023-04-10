@@ -1,14 +1,27 @@
+import 'package:ecommerce_app/models/Product.dart';
 import 'package:ecommerce_app/pages/ProductDetailPage.dart';
+import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ShopProductBox extends StatelessWidget {
+  final Product currentProduct;
+  final Function setCurrentPage;
+  final Function setPreviousPage;
+
+  ShopProductBox({
+    required this.currentProduct,
+    required this.setCurrentPage,
+    required this.setPreviousPage,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed('/product-detail');
+        setPreviousPage(PageState.SHOP_PRODUCTS);
+        setCurrentPage(PageState.PRODUCT_DETAILS);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +52,7 @@ class ShopProductBox extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage('images/pullover.png'),
+                            image: AssetImage(currentProduct.imageUrl ?? ""),
                           ),
                         ),
                       ),
@@ -58,13 +71,13 @@ class ShopProductBox extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Pullover',
+                              currentProduct.name ?? "",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 16.0),
                             ),
                             SizedBox(height: 5.0),
                             Text(
-                              'Dorothy Perkins',
+                              currentProduct.subtitle ?? "",
                               style: TextStyle(
                                 fontSize: 12.0,
                                 color: Color(0xFF9B9B9B),
@@ -74,7 +87,7 @@ class ShopProductBox extends StatelessWidget {
                             StarsDummy(),
                             SizedBox(height: 5.0),
                             Text(
-                              '\$15',
+                              '\$${((int.tryParse(currentProduct.price ?? "0") ?? 0) - (int.tryParse(currentProduct.discount ?? "0") ?? 0)).toString()}',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14.0),
                             ),

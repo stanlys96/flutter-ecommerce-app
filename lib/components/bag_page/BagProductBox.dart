@@ -1,18 +1,23 @@
 import 'package:ecommerce_app/pages/ProductDetailPage.dart';
+import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
 
 class BagProductBox extends StatelessWidget {
+  final Function setCurrentPage;
+  final Function setPreviousPage;
+
+  BagProductBox({
+    required this.setCurrentPage,
+    required this.setPreviousPage,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProductDetailsPage(),
-          ),
-        );
+        setCurrentPage(PageState.PRODUCT_DETAILS);
+        setPreviousPage(PageState.BAG);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

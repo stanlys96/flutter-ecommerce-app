@@ -6,12 +6,14 @@ class MyOrdersBox extends StatelessWidget {
   final Function setCurrentCategory;
   final Function setCurrentState;
   final String currentCategory;
+  final AnimationController? blurController;
 
   const MyOrdersBox({
     required this.setCurrentPage,
     required this.setCurrentCategory,
     required this.setCurrentState,
     required this.currentCategory,
+    required this.blurController,
   });
 
   @override
@@ -27,6 +29,7 @@ class MyOrdersBox extends StatelessWidget {
           child: GestureDetector(
             onTap: () {
               setCurrentPage('Profile', context);
+              blurController?.forward();
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

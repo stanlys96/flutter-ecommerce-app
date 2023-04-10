@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:ecommerce_app/models/Product.dart';
+import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -7,21 +8,23 @@ class ProductBox extends StatelessWidget {
   final int index;
   final int totalCount;
   final Product product;
+  final Function setCurrentPage;
+  final Function setPreviousPage;
 
   const ProductBox({
     required this.index,
     required this.totalCount,
     required this.product,
+    required this.setCurrentPage,
+    required this.setPreviousPage,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(
-          '/product-detail',
-          arguments: product,
-        );
+        setPreviousPage(PageState.HOME);
+        setCurrentPage(PageState.PRODUCT_DETAILS);
       },
       child: Container(
         margin: index != totalCount - 1

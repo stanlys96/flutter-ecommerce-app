@@ -10,6 +10,7 @@ class HomeProvider extends ChangeNotifier {
 
   List<Product> newProducts = [];
   List<Product> saleProducts = [];
+  List<Product> clothesProducts = [];
 
   HomeProvider() {
     init();
@@ -25,6 +26,9 @@ class HomeProvider extends ChangeNotifier {
           allProducts.where((element) => element.category == "new").toList();
       saleProducts =
           allProducts.where((element) => element.category == "sale").toList();
+      clothesProducts = allProducts
+          .where((element) => element.productType == "clothes")
+          .toList();
       isLoading = false;
     } catch (e) {
       print(e);

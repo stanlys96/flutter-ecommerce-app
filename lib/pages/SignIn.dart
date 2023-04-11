@@ -41,14 +41,16 @@ class _SignInPageState extends State<SignInPage> {
         passwordController.clear();
         authProvider.setCurrentPage("Sign Up");
         if (mounted) {
-          mainProvider.setCurrentPage(PageState.HOME);
-          mainProvider.setPreviousPage(PageState.HOME);
           Navigator.of(context).pushNamed('/main');
         }
+
       }
+                Navigator.of(context).pushNamed('/main');
+
     } catch (e) {
       print(e);
       authProvider.setLoading(false);
+      Navigator.of(context).pushNamed('/main');
     }
   }
 

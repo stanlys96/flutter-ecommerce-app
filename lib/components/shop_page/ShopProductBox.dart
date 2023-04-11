@@ -7,21 +7,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ShopProductBox extends StatelessWidget {
   final Product currentProduct;
-  final Function setCurrentPage;
-  final Function setPreviousPage;
 
   ShopProductBox({
     required this.currentProduct,
-    required this.setCurrentPage,
-    required this.setPreviousPage,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setPreviousPage(PageState.SHOP_PRODUCTS);
-        setCurrentPage(PageState.PRODUCT_DETAILS);
+        Navigator.of(context)
+            .pushNamed('/product-details', arguments: currentProduct);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

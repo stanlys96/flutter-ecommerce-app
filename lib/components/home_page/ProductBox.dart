@@ -8,23 +8,18 @@ class ProductBox extends StatelessWidget {
   final int index;
   final int totalCount;
   final Product product;
-  final Function setCurrentPage;
-  final Function setPreviousPage;
 
   const ProductBox({
     required this.index,
     required this.totalCount,
     required this.product,
-    required this.setCurrentPage,
-    required this.setPreviousPage,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        setPreviousPage(PageState.HOME);
-        setCurrentPage(PageState.PRODUCT_DETAILS);
+        Navigator.of(context).pushNamed('/product-details', arguments: product);
       },
       child: Container(
         margin: index != totalCount - 1

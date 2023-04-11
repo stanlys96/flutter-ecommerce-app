@@ -6,24 +6,12 @@ class ProfileProvider extends ChangeNotifier {
     'Profile',
     'Settings',
     'My Orders',
-    'Idle',
     'Order Details'
   ];
 
-  String page = "Idle";
-
   String currentPage = 'Profile';
 
-  void switchState() {
-    if (!availablePages.contains(currentPage) || !availablePages.contains(page))
-      return;
-    currentPage = page;
-    page = "Idle";
-  }
-
   void setCurrentPage(String newValue, BuildContext context) async {
-    print(newValue);
-    print("???");
     if (!availablePages.contains(newValue)) {
       await Flushbar(
         flushbarPosition: FlushbarPosition.TOP,
@@ -33,8 +21,7 @@ class ProfileProvider extends ChangeNotifier {
       ).show(context);
       return;
     }
-    page = newValue;
-    print(page);
+    currentPage = newValue;
     notifyListeners();
   }
 }

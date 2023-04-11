@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
 import 'package:ecommerce_app/pages/MainPage.dart';
+import 'package:ecommerce_app/pages/OrderDetailsPage.dart';
 import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:ecommerce_app/pages/SignIn.dart';
 import 'package:ecommerce_app/pages/SignUp.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
           MainPage.routeName: (context) => MainPage(),
           ProductDetailsPage.routeName: (context) => ProductDetailsPage(),
           ForgotPasswordPage.routeName: (context) => ForgotPasswordPage(),
+          OrderDetailsPage.routeName: (context) => OrderDetailsPage(),
         },
       ),
     );

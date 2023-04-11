@@ -22,6 +22,13 @@ class MainProvider extends ChangeNotifier {
   String currentProductType = "";
   String currentProductCategory = "";
 
+  void resetPage() {
+    page = PageState.IDLE;
+    previousPage = PageState.HOME;
+    currentPage = PageState.HOME;
+    notifyListeners();
+  }
+
   void setCurrentPage(PageState newValue) {
     page = newValue;
     blurController?.forward();

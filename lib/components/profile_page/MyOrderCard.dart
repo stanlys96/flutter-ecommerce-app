@@ -2,9 +2,6 @@ import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyOrderCard extends StatelessWidget {
-  final Function setCurrentState;
-  const MyOrderCard({required this.setCurrentState});
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,7 +99,7 @@ class MyOrderCard extends StatelessWidget {
                 width: (MediaQuery.of(context).size.width - 20) * 0.3,
                 child: ElevatedButton(
                   onPressed: () {
-                    setCurrentState(PageState.MY_ORDER_DETAILS);
+                    Navigator.of(context).pushNamed('/order-details');
                   },
                   child: Text(
                     'Details',

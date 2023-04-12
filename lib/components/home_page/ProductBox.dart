@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:ecommerce_app/models/Product.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -23,7 +22,7 @@ class ProductBox extends StatelessWidget {
       },
       child: Container(
         margin: index != totalCount - 1
-            ? EdgeInsets.only(right: 10.0)
+            ? const EdgeInsets.only(right: 10.0)
             : EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +37,7 @@ class ProductBox extends StatelessWidget {
                     Positioned(
                       bottom: -22.5,
                       child: Container(
-                        padding: EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
@@ -48,11 +47,11 @@ class ProductBox extends StatelessWidget {
                               spreadRadius: 2,
                               blurRadius: 3,
                               offset:
-                                  Offset(0, 1), // changes position of shadow
+                                  const Offset(0, 1), // changes position of shadow
                             ),
                           ],
                         ),
-                        child: FaIcon(
+                        child: const FaIcon(
                           FontAwesomeIcons.heart,
                         ),
                       ),
@@ -60,8 +59,8 @@ class ProductBox extends StatelessWidget {
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(5.0),
+                  margin: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5.0),
                   decoration: BoxDecoration(
                     color: product.category?.toUpperCase() == "SALE"
                         ? Colors.red
@@ -70,7 +69,7 @@ class ProductBox extends StatelessWidget {
                   ),
                   child: Text(
                     product.category?.toUpperCase() ?? "",
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -78,41 +77,41 @@ class ProductBox extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 5.0),
-            StarsDummy(),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
+            const StarsDummy(),
+            const SizedBox(height: 5.0),
             Text(
               product.subtitle ?? "",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12.0,
                 color: Color(0xFF9B9B9B),
               ),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Text(
               product.name ?? "",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Row(
               children: [
                 Text(
                   '\$${product.price.toString()}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF9B9B9B),
                     decoration: TextDecoration.lineThrough,
                   ),
                 ),
-                SizedBox(width: 5.0),
+                const SizedBox(width: 5.0),
                 Text(
                   '\$${((int.tryParse(product.price ?? "0") ?? 0) - (int.tryParse(product.discount ?? "0") ?? 0)).toString()}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFFDB3022),

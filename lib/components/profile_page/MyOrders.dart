@@ -16,7 +16,7 @@ class _MyOrdersState extends State<MyOrders> {
   void scrollToTop() {
     scrollController.animateTo(
       0,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.fastOutSlowIn,
     );
   }
@@ -30,10 +30,10 @@ class _MyOrdersState extends State<MyOrders> {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             width: double.infinity,
             child: GestureDetector(
               onTap: () {
@@ -41,7 +41,7 @@ class _MyOrdersState extends State<MyOrders> {
               },
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Icon(
                     Icons.arrow_back,
                   ),
@@ -61,7 +61,7 @@ class _MyOrdersState extends State<MyOrders> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 Row(
@@ -73,6 +73,12 @@ class _MyOrdersState extends State<MyOrders> {
                         onPressed: () {
                           // setCurrentCategory('Delivered');
                         },
+                        style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          backgroundColor: currentCategory == 'Delivered'
+                              ? Colors.black
+                              : Colors.white,
+                        ),
                         child: Text(
                           'Delivered',
                           style: TextStyle(
@@ -80,12 +86,6 @@ class _MyOrdersState extends State<MyOrders> {
                                 ? Colors.white
                                 : Colors.black,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                          backgroundColor: currentCategory == 'Delivered'
-                              ? Colors.black
-                              : Colors.white,
                         ),
                       ),
                     ),
@@ -95,6 +95,12 @@ class _MyOrdersState extends State<MyOrders> {
                         onPressed: () {
                           // setCurrentCategory('Processing');
                         },
+                        style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          backgroundColor: currentCategory == 'Processing'
+                              ? Colors.black
+                              : Colors.white,
+                        ),
                         child: Text(
                           'Processing',
                           style: TextStyle(
@@ -102,12 +108,6 @@ class _MyOrdersState extends State<MyOrders> {
                                 ? Colors.white
                                 : Colors.black,
                           ),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                          backgroundColor: currentCategory == 'Processing'
-                              ? Colors.black
-                              : Colors.white,
                         ),
                       ),
                     ),
@@ -117,6 +117,12 @@ class _MyOrdersState extends State<MyOrders> {
                         onPressed: () {
                           // setCurrentCategory('Cancelled');
                         },
+                        style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          backgroundColor: currentCategory == 'Cancelled'
+                              ? Colors.black
+                              : Colors.white,
+                        ),
                         child: Text(
                           'Cancelled',
                           style: TextStyle(
@@ -125,25 +131,19 @@ class _MyOrdersState extends State<MyOrders> {
                                 : Colors.black,
                           ),
                         ),
-                        style: ElevatedButton.styleFrom(
-                          shape: StadiumBorder(),
-                          backgroundColor: currentCategory == 'Cancelled'
-                              ? Colors.black
-                              : Colors.white,
-                        ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 MyOrderCard(),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 MyOrderCard(),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 MyOrderCard(),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 MyOrderCard(),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 MyOrderCard(),
               ],
             ),

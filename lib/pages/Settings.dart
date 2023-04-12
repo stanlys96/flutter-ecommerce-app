@@ -1,7 +1,5 @@
 import 'package:ecommerce_app/components/InputBox.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,10 +25,10 @@ class _SettingsState extends State<Settings> {
         Column(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               width: double.infinity,
               child: GestureDetector(
                 onTap: () {
@@ -38,7 +36,7 @@ class _SettingsState extends State<Settings> {
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Icon(
                       Icons.arrow_back,
                     ),
@@ -58,32 +56,32 @@ class _SettingsState extends State<Settings> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Personal Information',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   InputBox(
                     title: "Full Name",
                     controller: nameController,
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   InputBox(
                     title: "Email",
                     controller: emailController,
                   ),
-                  SizedBox(height: 32.0),
+                  const SizedBox(height: 32.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Password',
                         style: TextStyle(
@@ -103,7 +101,7 @@ class _SettingsState extends State<Settings> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   InputBox(
                     title: "Password",
                     controller: passwordController,
@@ -114,20 +112,20 @@ class _SettingsState extends State<Settings> {
           ],
         ),
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: Text('SAVE'),
               style: ElevatedButton.styleFrom(
-                shape: StadiumBorder(),
-                backgroundColor: Color(0xFFDB3022),
-                padding: EdgeInsets.symmetric(vertical: 15.0),
+                shape: const StadiumBorder(),
+                backgroundColor: const Color(0xFFDB3022),
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
               ),
+              child: const Text('SAVE'),
             ),
           ),
         )

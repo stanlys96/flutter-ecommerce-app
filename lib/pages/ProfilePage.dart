@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
       } else if (profileProvider.currentPage == "My Orders") {
         return MyOrders();
       } else {
-        return SizedBox();
+        return const SizedBox();
       }
     });
   }

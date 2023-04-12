@@ -5,7 +5,7 @@ class MyOrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
@@ -15,7 +15,7 @@ class MyOrderCard extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text(
                 'Order No. 1947034',
                 style: TextStyle(
@@ -33,14 +33,14 @@ class MyOrderCard extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 12.5),
+          const SizedBox(height: 12.5),
           RichText(
-            text: TextSpan(
+            text: const TextSpan(
               text: 'Tracking number: ',
               style: TextStyle(
                 color: Color(0xFF9B9B9B),
               ),
-              children: const <TextSpan>[
+              children: <TextSpan>[
                 TextSpan(
                   text: 'IW347543455',
                   style: TextStyle(
@@ -51,17 +51,17 @@ class MyOrderCard extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 12.5),
+          const SizedBox(height: 12.5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'Quantity: ',
                   style: TextStyle(
                     color: Color(0xFF9B9B9B),
                   ),
-                  children: const <TextSpan>[
+                  children: <TextSpan>[
                     TextSpan(
                       text: '3',
                       style: TextStyle(
@@ -73,12 +73,12 @@ class MyOrderCard extends StatelessWidget {
                 ),
               ),
               RichText(
-                text: TextSpan(
+                text: const TextSpan(
                   text: 'Total Amount: ',
                   style: TextStyle(
                     color: Color(0xFF9B9B9B),
                   ),
-                  children: const <TextSpan>[
+                  children: <TextSpan>[
                     TextSpan(
                       text: '\$112',
                       style: TextStyle(
@@ -91,7 +91,7 @@ class MyOrderCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 12.5),
+          const SizedBox(height: 12.5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -101,20 +101,20 @@ class MyOrderCard extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed('/order-details');
                   },
-                  child: Text(
-                    'Details',
-                    style: TextStyle(color: Colors.black),
-                  ),
                   style: ElevatedButton.styleFrom(
-                    shape: StadiumBorder(),
+                    shape: const StadiumBorder(),
                     backgroundColor: Colors.white,
-                    side: BorderSide(
+                    side: const BorderSide(
                       color: Colors.black,
                     ),
                   ),
+                  child: const Text(
+                    'Details',
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
-              Text(
+              const Text(
                 'Delivered',
                 style: TextStyle(
                   color: Color(0xFF2AA952),

@@ -57,14 +57,14 @@ class _SignUpPageState extends State<SignUpPage> {
         child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height - 56.0,
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 20.0,
               left: 20.0,
               right: 20.0,
               bottom: 100.0,
             ),
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFF9F9F9),
             ),
             child: Column(
@@ -72,117 +72,111 @@ class _SignUpPageState extends State<SignUpPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 SingleChildScrollView(
-                  child: Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Text(
-                          'Sign Up',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            fontSize: 25.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Text(
+                        'Sign Up',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        InputBox(
-                          title: 'Full Name',
-                          placeholder: 'Enter full name',
-                          controller: nameController,
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        InputBox(
-                          title: 'Email',
-                          placeholder: 'Enter email',
-                          controller: emailController,
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        InputBox(
-                          title: 'Password',
-                          placeholder: 'Enter password',
-                          isPassword: true,
-                          controller: passwordController,
-                        ),
-                        SizedBox(height: 20.0),
-                        InkWell(
-                          onTap: () {
-                            widget.blurController?.forward();
-                            authProvider.setCurrentPage('Sign In');
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Already have an account?',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      InputBox(
+                        title: 'Full Name',
+                        placeholder: 'Enter full name',
+                        controller: nameController,
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      InputBox(
+                        title: 'Email',
+                        placeholder: 'Enter email',
+                        controller: emailController,
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      InputBox(
+                        title: 'Password',
+                        placeholder: 'Enter password',
+                        isPassword: true,
+                        controller: passwordController,
+                      ),
+                      const SizedBox(height: 20.0),
+                      InkWell(
+                        onTap: () {
+                          widget.blurController?.forward();
+                          authProvider.setCurrentPage('Sign In');
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Text(
+                              'Already have an account?',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
                               ),
-                              SizedBox(width: 10.0),
-                              FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                size: 20.0,
-                                color: Colors.red,
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 20.0),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              handleSignUp(authProvider);
-                            },
-                            child: Text('Sign Up'),
-                            style: ElevatedButton.styleFrom(
-                              shape: StadiumBorder(),
-                              backgroundColor: Color(0xFFDB3022),
                             ),
-                          ),
+                            SizedBox(width: 10.0),
+                            FaIcon(
+                              FontAwesomeIcons.arrowRight,
+                              size: 20.0,
+                              color: Colors.red,
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            handleSignUp(authProvider);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            backgroundColor: const Color(0xFFDB3022),
+                          ),
+                          child: const Text('Sign Up'),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text('Or sign up with social account'),
-                          SizedBox(
-                            height: 10.0,
-                          ),
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SocialIconBox(
-                                  icon: FontAwesomeIcons.google,
-                                  iconColor: Colors.green,
-                                ),
-                                SizedBox(
-                                  width: 20.0,
-                                ),
-                                SocialIconBox(
-                                  icon: FontAwesomeIcons.facebook,
-                                  iconColor: Colors.blue,
-                                ),
-                              ],
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const Text('Or sign up with social account'),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            SocialIconBox(
+                              icon: FontAwesomeIcons.google,
+                              iconColor: Colors.green,
                             ),
-                          )
-                        ],
-                      ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            SocialIconBox(
+                              icon: FontAwesomeIcons.facebook,
+                              iconColor: Colors.blue,
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   ],
                 )

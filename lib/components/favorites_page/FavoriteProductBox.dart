@@ -1,5 +1,3 @@
-import 'package:ecommerce_app/pages/ProductDetailPage.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,7 +23,7 @@ class FavoriteProductBox extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 3,
-                      offset: Offset(0, 1), // changes position of shadow
+                      offset: const Offset(0, 1), // changes position of shadow
                     ),
                   ],
                 ),
@@ -36,7 +34,7 @@ class FavoriteProductBox extends StatelessWidget {
                     children: [
                       Container(
                         width: (MediaQuery.of(context).size.width - 32) * 0.30,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.fill,
                             image: AssetImage('images/pullover.png'),
@@ -44,8 +42,8 @@ class FavoriteProductBox extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(10.0),
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             bottomRight: Radius.circular(8.0),
                             topRight: Radius.circular(8.0),
@@ -61,7 +59,7 @@ class FavoriteProductBox extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Text(
+                                const Text(
                                   'Dorothy Perkins',
                                   style: TextStyle(
                                     fontSize: 12.0,
@@ -69,30 +67,30 @@ class FavoriteProductBox extends StatelessWidget {
                                   ),
                                 ),
                                 GestureDetector(
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.cancel,
                                     size: 20.0,
                                   ),
                                 ),
                               ],
                             ),
-                            SizedBox(height: 5.0),
-                            Text(
+                            const SizedBox(height: 5.0),
+                            const Text(
                               'Pullover',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 16.0),
                             ),
-                            SizedBox(height: 5.0),
+                            const SizedBox(height: 5.0),
                             Row(
                               children: [
                                 RichText(
-                                  text: TextSpan(
+                                  text: const TextSpan(
                                     text: 'Color: ',
                                     style: TextStyle(
                                       color: Color(0xFF9B9B9B),
                                       fontSize: 11.0,
                                     ),
-                                    children: const <TextSpan>[
+                                    children: <TextSpan>[
                                       TextSpan(
                                         text: 'Gray',
                                         style: TextStyle(
@@ -104,15 +102,15 @@ class FavoriteProductBox extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 20.0),
+                                const SizedBox(width: 20.0),
                                 RichText(
-                                  text: TextSpan(
+                                  text: const TextSpan(
                                     text: 'Size: ',
                                     style: TextStyle(
                                       color: Color(0xFF9B9B9B),
                                       fontSize: 11.0,
                                     ),
-                                    children: const <TextSpan>[
+                                    children: <TextSpan>[
                                       TextSpan(
                                         text: 'L',
                                         style: TextStyle(
@@ -126,10 +124,10 @@ class FavoriteProductBox extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 5.0),
+                            const SizedBox(height: 5.0),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
+                              children: const [
                                 Text(
                                   '\$15',
                                   style: TextStyle(
@@ -150,7 +148,7 @@ class FavoriteProductBox extends StatelessWidget {
               Positioned(
                 bottom: -22.5,
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -159,11 +157,11 @@ class FavoriteProductBox extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 2,
                         blurRadius: 3,
-                        offset: Offset(0, 1), // changes position of shadow
+                        offset: const Offset(0, 1), // changes position of shadow
                       ),
                     ],
                   ),
-                  child: FaIcon(
+                  child: const FaIcon(
                     FontAwesomeIcons.solidHeart,
                     color: Color(0xFFDB3022),
                   ),

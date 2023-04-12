@@ -1,7 +1,5 @@
 import 'package:ecommerce_app/provider/AuthProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +16,7 @@ class _LottieContainerState extends State<LottieContainer> {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     if (authProvider.loading) {
       return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.black54,
         ),
         height: double.infinity,
@@ -34,7 +32,7 @@ class _LottieContainerState extends State<LottieContainer> {
         alignment: AlignmentDirectional.topEnd,
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.black54,
             ),
             height: double.infinity,
@@ -47,11 +45,11 @@ class _LottieContainerState extends State<LottieContainer> {
                     'images/success.json',
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 20,
                       vertical: 10,
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
@@ -59,7 +57,7 @@ class _LottieContainerState extends State<LottieContainer> {
                         ),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Register Successful!',
                       style: TextStyle(
                         color: Colors.white,
@@ -78,13 +76,13 @@ class _LottieContainerState extends State<LottieContainer> {
               }
             },
             child: Container(
-              margin: EdgeInsets.all(10.0),
-              padding: EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
+              decoration: const BoxDecoration(
                 color: Colors.black,
                 shape: BoxShape.circle,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.close,
                 color: Colors.white,
               ),

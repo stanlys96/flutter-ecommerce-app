@@ -27,9 +27,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         opacity: 1 - (widget.blurController?.value ?? 0),
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsetsDirectional.all(20.0),
+            padding: const EdgeInsetsDirectional.all(20.0),
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFFf9f9f9),
             ),
             height: MediaQuery.of(context).size.height - 56.0,
@@ -49,26 +49,26 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20.0,
                       ),
                       const Text(
                           'Please, enter your email address. You will receive a link to create a new password via email.'),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       InputBox(
                         title: "Email",
                         controller: emailController,
                         placeholder: "Enter Email",
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Send'),
+                          child: const Text('Send'),
                           style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            backgroundColor: Color(0xFFDB3022),
+                            shape: const StadiumBorder(),
+                            backgroundColor: const Color(0xFFDB3022),
                           ),
                         ),
                       ),

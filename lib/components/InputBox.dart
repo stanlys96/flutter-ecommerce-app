@@ -16,11 +16,11 @@ class InputBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.all(
+        color: const Color(0xFFFFFFFF),
+        borderRadius: const BorderRadius.all(
           Radius.circular(5.0),
         ),
         boxShadow: [
@@ -28,7 +28,7 @@ class InputBox extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 3,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: const Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
@@ -37,11 +37,11 @@ class InputBox extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF9B9B9B),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           TextField(

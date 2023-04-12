@@ -1,10 +1,7 @@
 import 'package:ecommerce_app/components/StarsDummy.dart';
 import 'package:ecommerce_app/models/Product.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   static const String routeName = '/product-details';
@@ -16,12 +13,12 @@ class ProductDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
         title: Text(
           product.name ?? "",
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         ),
@@ -30,12 +27,13 @@ class ProductDetailsPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.only(bottom: 100.0),
+              decoration: const BoxDecoration(
                 color: Color(0xFFF9F9F9),
               ),
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 413.0,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -46,14 +44,14 @@ class ProductDetailsPage extends StatelessWidget {
                         return Row(
                           children: [
                             Image.asset(currentImage),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                           ],
                         );
                       },
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
                         Row(
@@ -65,17 +63,17 @@ class ProductDetailsPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 1.0,
-                                  color: Color.fromARGB(50, 0, 0, 0),
+                                  color: const Color.fromARGB(50, 0, 0, 0),
                                 ),
-                                borderRadius: BorderRadius.all(
+                                borderRadius: const BorderRadius.all(
                                   Radius.circular(16.0),
                                 ),
                               ),
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Size',
                                   ),
@@ -91,17 +89,17 @@ class ProductDetailsPage extends StatelessWidget {
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   width: 1.0,
-                                  color: Color.fromARGB(50, 0, 0, 0),
+                                  color: const Color.fromARGB(50, 0, 0, 0),
                                 ),
-                                borderRadius: BorderRadius.all(
+                                borderRadius: const BorderRadius.all(
                                   Radius.circular(16.0),
                                 ),
                               ),
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Black',
                                   ),
@@ -112,7 +110,7 @@ class ProductDetailsPage extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 shape: BoxShape.circle,
@@ -121,18 +119,18 @@ class ProductDetailsPage extends StatelessWidget {
                                     color: Colors.grey.withOpacity(0.5),
                                     spreadRadius: 2,
                                     blurRadius: 3,
-                                    offset: Offset(
+                                    offset: const Offset(
                                         0, 1), // changes position of shadow
                                   ),
                                 ],
                               ),
-                              child: FaIcon(
+                              child: const FaIcon(
                                 FontAwesomeIcons.heart,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,16 +140,16 @@ class ProductDetailsPage extends StatelessWidget {
                               children: [
                                 Text(
                                   product.name ?? "",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 24.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                SizedBox(height: 5.0),
+                                const SizedBox(height: 5.0),
                                 Text(
                                   product.subtitle ?? "",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 11.0,
                                     color: Color(0xFF9B9B9B),
                                   ),
@@ -160,7 +158,7 @@ class ProductDetailsPage extends StatelessWidget {
                             ),
                             Text(
                               '\$${((int.tryParse(product.price ?? "0") ?? 0) - (int.tryParse(product.discount ?? "0") ?? 0)).toString()}.00',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
@@ -168,12 +166,12 @@ class ProductDetailsPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.0),
-                        StarsDummy(),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
+                        const StarsDummy(),
+                        const SizedBox(height: 10.0),
                         Text(
                           product.description ?? "",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14.0,
                             color: Colors.black,
                           ),
@@ -188,20 +186,20 @@ class ProductDetailsPage extends StatelessWidget {
         ),
       ),
       bottomSheet: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
         ),
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {},
-            child: Text('ADD TO CART'),
             style: ElevatedButton.styleFrom(
-              shape: StadiumBorder(),
-              backgroundColor: Color(0xFFDB3022),
-              padding: EdgeInsets.symmetric(vertical: 15.0),
+              shape: const StadiumBorder(),
+              backgroundColor: const Color(0xFFDB3022),
+              padding: const EdgeInsets.symmetric(vertical: 15.0),
             ),
+            child: const Text('ADD TO CART'),
           ),
         ),
       ),

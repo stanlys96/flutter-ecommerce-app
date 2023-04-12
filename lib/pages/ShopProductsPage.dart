@@ -1,8 +1,6 @@
 import 'package:ecommerce_app/components/shop_page/ShopProductBox.dart';
 import 'package:ecommerce_app/models/Product.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
 import 'package:ecommerce_app/provider/ShopProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -30,10 +28,10 @@ class ShopProductsPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
             ),
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             width: double.infinity,
             child: GestureDetector(
               onTap: () {
@@ -42,15 +40,15 @@ class ShopProductsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.arrow_back,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16.0,
                   ),
                   Text(
                     shopProvider.currentPage,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 34.0,
                       fontWeight: FontWeight.bold,
@@ -61,15 +59,15 @@ class ShopProductsPage extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(16.0),
-            child: currentProducts.length > 0
+            padding: const EdgeInsets.all(16.0),
+            child: currentProducts.isNotEmpty
                 ? Column(
                     children: [
                       for (Product currentProduct in currentProducts) ...[
                         ShopProductBox(
                           currentProduct: currentProduct,
                         ),
-                        SizedBox(height: 32.0),
+                        const SizedBox(height: 32.0),
                       ],
                     ],
                   )
@@ -79,7 +77,7 @@ class ShopProductsPage extends StatelessWidget {
                         'images/empty.json',
                         width: double.infinity,
                       ),
-                      Text('No products to display for this category...'),
+                      const Text('No products to display for this category...'),
                     ],
                   ),
           ),

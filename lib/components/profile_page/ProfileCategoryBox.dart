@@ -18,8 +18,8 @@ class ProfileCategoryBox extends StatelessWidget {
         setCurrentPage();
       },
       child: Container(
-        padding: EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(16.0),
+        decoration: const BoxDecoration(
           border: Border(
             bottom: BorderSide(
               width: 0.5,
@@ -36,22 +36,22 @@ class ProfileCategoryBox extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 7.5),
+                const SizedBox(height: 7.5),
                 Text(
                   subTitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF9B9B9B),
                     fontSize: 11.0,
                   ),
                 ),
               ],
             ),
-            Icon(
+            const Icon(
               Icons.arrow_right,
             ),
           ],

@@ -10,14 +10,10 @@ class SocialIconBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
-      child: FaIcon(
-        icon,
-        color: iconColor,
-      ),
+      padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: Color(0xFFFFFFFF),
-        borderRadius: BorderRadius.all(
+        color: const Color(0xFFFFFFFF),
+        borderRadius: const BorderRadius.all(
           Radius.circular(5.0),
         ),
         boxShadow: [
@@ -25,9 +21,13 @@ class SocialIconBox extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 3,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: const Offset(0, 1), // changes position of shadow
           ),
         ],
+      ),
+      child: FaIcon(
+        icon,
+        color: iconColor,
       ),
     );
   }

@@ -14,20 +14,20 @@ class ShopMainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             Container(
               width: double.infinity,
               height: 100.0,
               decoration: BoxDecoration(
-                color: Color(0xFFDB3022),
+                color: const Color(0xFFDB3022),
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     'SUMMER SALES',
                     style: TextStyle(
@@ -47,13 +47,13 @@ class ShopMainPage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             for (ShopCategory categoryData in shopCategoryData) ...[
               ShopCategoryBox(
                 title: categoryData.title,
                 imgUrl: categoryData.imgUrl,
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
             ],
           ],
         ),

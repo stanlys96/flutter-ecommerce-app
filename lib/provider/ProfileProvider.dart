@@ -17,7 +17,7 @@ class ProfileProvider extends ChangeNotifier {
         flushbarPosition: FlushbarPosition.TOP,
         title: 'Not Available Yet',
         message: 'This service is currently not available.',
-        duration: Duration(milliseconds: 1500),
+        duration: const Duration(milliseconds: 1500),
       ).show(context);
       return;
     }

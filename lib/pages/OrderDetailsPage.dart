@@ -1,9 +1,6 @@
 import 'package:ecommerce_app/components/profile_page/OrderDetailBox.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class OrderDetailsPage extends StatelessWidget {
   static const String routeName = '/order-details';
@@ -14,10 +11,10 @@ class OrderDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
-        title: Text(
+        title: const Text(
           "Order Details",
           style: TextStyle(
             color: Colors.black,
@@ -28,13 +25,13 @@ class OrderDetailsPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                    children: const [
                       Text(
                         'Order No. 1947034',
                         style: TextStyle(
@@ -52,18 +49,18 @@ class OrderDetailsPage extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           text: 'Tracking number: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
-                          children: const <TextSpan>[
+                          children: <TextSpan>[
                             TextSpan(
                               text: 'IW347543455',
                               style: TextStyle(
@@ -74,7 +71,7 @@ class OrderDetailsPage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Delivered',
                         style: TextStyle(
                           color: Color(0xFF2AA952),
@@ -82,22 +79,22 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
-                  Text(
+                  const SizedBox(height: 16.0),
+                  const Text(
                     '3 items',
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   OrderDetailBox(),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   OrderDetailBox(),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   OrderDetailBox(),
-                  SizedBox(height: 32.0),
-                  Text(
+                  const SizedBox(height: 32.0),
+                  const Text(
                     'Order Information',
                     style: TextStyle(
                       color: Colors.black,
@@ -105,25 +102,25 @@ class OrderDetailsPage extends StatelessWidget {
                       fontSize: 16.0,
                     ),
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 32) * 0.37,
-                        child: Text(
+                        child: const Text(
                           'Shipping Address: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           width:
                               (MediaQuery.of(context).size.width - 32) * 0.37,
-                          child: Text(
+                          child: const Text(
                             '3 Newbridge Court, Chino Hills, CA 91709, United States',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -133,25 +130,25 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 32) * 0.37,
-                        child: Text(
+                        child: const Text(
                           'Payment method: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           width:
                               (MediaQuery.of(context).size.width - 32) * 0.37,
-                          child: Text(
+                          child: const Text(
                             '**** **** **** 3947',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -161,25 +158,25 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 32) * 0.37,
-                        child: Text(
+                        child: const Text(
                           'Delivery method: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           width:
                               (MediaQuery.of(context).size.width - 32) * 0.37,
-                          child: Text(
+                          child: const Text(
                             'FedEx, 3 days, \$15',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -189,25 +186,25 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 32) * 0.37,
-                        child: Text(
+                        child: const Text(
                           'Discount: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           width:
                               (MediaQuery.of(context).size.width - 32) * 0.37,
-                          child: Text(
+                          child: const Text(
                             '10%',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -217,25 +214,25 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         width: (MediaQuery.of(context).size.width - 32) * 0.37,
-                        child: Text(
+                        child: const Text(
                           'Total Amount: ',
                           style: TextStyle(
                             color: Color(0xFF9B9B9B),
                           ),
                         ),
                       ),
-                      SizedBox(width: 5.0),
+                      const SizedBox(width: 5.0),
                       Expanded(
-                        child: Container(
+                        child: SizedBox(
                           width:
                               (MediaQuery.of(context).size.width - 32) * 0.37,
-                          child: Text(
+                          child: const Text(
                             '\$133',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -245,7 +242,7 @@ class OrderDetailsPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 16.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -253,16 +250,16 @@ class OrderDetailsPage extends StatelessWidget {
                         width: (MediaQuery.of(context).size.width - 32) * 0.47,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
-                            'Reorder',
-                            style: TextStyle(color: Colors.black),
-                          ),
                           style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
+                            shape: const StadiumBorder(),
                             backgroundColor: Colors.white,
-                            side: BorderSide(
+                            side: const BorderSide(
                               color: Colors.black,
                             ),
+                          ),
+                          child: const Text(
+                            'Reorder',
+                            style: TextStyle(color: Colors.black),
                           ),
                         ),
                       ),
@@ -270,13 +267,13 @@ class OrderDetailsPage extends StatelessWidget {
                         width: (MediaQuery.of(context).size.width - 32) * 0.47,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text(
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            backgroundColor: const Color(0xFFDB3022),
+                          ),
+                          child: const Text(
                             'Leave Feedback',
                             style: TextStyle(color: Colors.white),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            backgroundColor: Color(0xFFDB3022),
                           ),
                         ),
                       ),

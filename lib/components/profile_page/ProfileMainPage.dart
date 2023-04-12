@@ -12,11 +12,11 @@ class ProfileMainPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "My Profile",
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -25,7 +25,7 @@ class ProfileMainPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Row(
                 children: [
                   Image.asset(
@@ -33,11 +33,11 @@ class ProfileMainPage extends StatelessWidget {
                     width: 64.0,
                     height: 64.0,
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Text(
                         'Matilda Brown',
                         style: TextStyle(
@@ -96,18 +96,18 @@ class ProfileMainPage extends StatelessWidget {
         Center(
           child: Container(
             width: MediaQuery.of(context).size.width * 0.7,
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: SizedBox(
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed('/auth');
                 },
-                child: Text('Log Out'),
                 style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(),
-                  backgroundColor: Color(0xFFDB3022),
-                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                  shape: const StadiumBorder(),
+                  backgroundColor: const Color(0xFFDB3022),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
+                child: const Text('Log Out'),
               ),
             ),
           ),

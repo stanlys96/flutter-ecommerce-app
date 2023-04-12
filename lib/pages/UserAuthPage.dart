@@ -5,7 +5,6 @@ import 'package:ecommerce_app/pages/SignUp.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:after_layout/after_layout.dart';
 import 'dart:ui';
 import 'package:ecommerce_app/views/front_view.dart';
 
@@ -45,7 +44,7 @@ class _AuthPageState extends State<AuthPage>
 
   AnimationController _controller() {
     return AnimationController(
-        vsync: this, duration: Duration(milliseconds: 350));
+        vsync: this, duration: const Duration(milliseconds: 350));
   }
 
   @override
@@ -84,7 +83,7 @@ class _AuthPageState extends State<AuthPage>
   }
 
   Widget _blur() {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: double.infinity,
       child: BackdropFilter(
@@ -128,13 +127,13 @@ class _AuthPageState extends State<AuthPage>
                   onTap: () {
                     goBack(authProvider, context);
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back,
                   ),
                 )
               : null,
-          iconTheme: IconThemeData(color: Colors.white),
-          title: Text("Fashionee"),
+          iconTheme: const IconThemeData(color: Colors.white),
+          title: const Text("Fashionee"),
           backgroundColor: Colors.red,
           // elevation: 0,
         ),
@@ -150,7 +149,7 @@ class _AuthPageState extends State<AuthPage>
             SignUpPage(
               blurController: _blurController,
             ),
-            LottieContainer(),
+            const LottieContainer(),
           ],
         ),
       );

@@ -36,7 +36,7 @@ class StarsDummy extends StatelessWidget {
           width: 14.0,
           height: 14.0,
         ),
-        Text(
+        const Text(
           '(10)',
           style: TextStyle(
             fontSize: 12.0,

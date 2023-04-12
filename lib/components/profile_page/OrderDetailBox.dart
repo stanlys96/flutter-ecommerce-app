@@ -1,6 +1,4 @@
-import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce_app/components/StarsDummy.dart';
 
 class OrderDetailBox extends StatelessWidget {
   @override
@@ -18,7 +16,7 @@ class OrderDetailBox extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 3,
-                  offset: Offset(0, 1), // changes position of shadow
+                  offset: const Offset(0, 1), // changes position of shadow
                 ),
               ],
             ),
@@ -29,7 +27,7 @@ class OrderDetailBox extends StatelessWidget {
                 children: [
                   Container(
                     width: (MediaQuery.of(context).size.width - 32) * 0.30,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage('images/pullover.png'),
@@ -37,8 +35,8 @@ class OrderDetailBox extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(8.0),
                         topRight: Radius.circular(8.0),
@@ -50,13 +48,13 @@ class OrderDetailBox extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Pullover',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16.0),
                         ),
-                        SizedBox(height: 5.0),
-                        Text(
+                        const SizedBox(height: 5.0),
+                        const Text(
                           'Mango',
                           style: TextStyle(
                             fontSize: 14.0,
@@ -65,16 +63,16 @@ class OrderDetailBox extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         Row(
                           children: [
                             RichText(
-                              text: TextSpan(
+                              text: const TextSpan(
                                 text: 'Color: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
-                                children: const <TextSpan>[
+                                children: <TextSpan>[
                                   TextSpan(
                                     text: 'Gray',
                                     style: TextStyle(
@@ -85,14 +83,14 @@ class OrderDetailBox extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(width: 20.0),
+                            const SizedBox(width: 20.0),
                             RichText(
-                              text: TextSpan(
+                              text: const TextSpan(
                                 text: 'Size: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
-                                children: const <TextSpan>[
+                                children: <TextSpan>[
                                   TextSpan(
                                     text: 'L',
                                     style: TextStyle(
@@ -105,18 +103,18 @@ class OrderDetailBox extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             RichText(
-                              text: TextSpan(
+                              text: const TextSpan(
                                 text: 'Units: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
-                                children: const <TextSpan>[
+                                children: <TextSpan>[
                                   TextSpan(
                                     text: '1',
                                     style: TextStyle(
@@ -127,7 +125,7 @@ class OrderDetailBox extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Text(
+                            const Text(
                               '\$15',
                               style: TextStyle(
                                 color: Colors.black,

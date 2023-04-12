@@ -12,7 +12,7 @@ class BagPage extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               top: 16.0,
               right: 16.0,
               left: 16.0,
@@ -21,7 +21,7 @@ class BagPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "My Bag",
                   textAlign: TextAlign.start,
                   style: TextStyle(
@@ -32,22 +32,22 @@ class BagPage extends StatelessWidget {
                 ),
                 Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFF9F9F9),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(height: 16.0),
+                      const SizedBox(height: 16.0),
                       BagProductBox(),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                       BagProductBox(),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                       BagProductBox(),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                       BagProductBox(),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                       BagProductBox(),
-                      SizedBox(height: 32.0),
+                      const SizedBox(height: 32.0),
                     ],
                   ),
                 ),
@@ -56,17 +56,17 @@ class BagPage extends StatelessWidget {
           ),
         ),
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
           ),
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text(
                     'Total amount:',
                     style: TextStyle(
@@ -83,16 +83,16 @@ class BagPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('CHECK OUT'),
+                  child: const Text('CHECK OUT'),
                   style: ElevatedButton.styleFrom(
-                    shape: StadiumBorder(),
-                    backgroundColor: Color(0xFFDB3022),
-                    padding: EdgeInsets.symmetric(vertical: 15.0),
+                    shape: const StadiumBorder(),
+                    backgroundColor: const Color(0xFFDB3022),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
                   ),
                 ),
               ),

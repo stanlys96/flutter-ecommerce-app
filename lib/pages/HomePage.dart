@@ -1,8 +1,6 @@
 import 'package:ecommerce_app/components/home_page/ProductBox.dart';
 import 'package:ecommerce_app/models/Product.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +24,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height - 300.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fill,
                       image: AssetImage('images/main_banner.png'),
@@ -34,53 +32,53 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Fashion',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 45.0),
                       ),
-                      Text(
+                      const Text(
                         'Sale',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 45.0),
                       ),
-                      SizedBox(height: 10.0),
+                      const SizedBox(height: 10.0),
                       SizedBox(
                         width: 150.0,
                         child: ElevatedButton(
                           onPressed: () {},
-                          child: Text('Check'),
                           style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            backgroundColor: Color(0xFFDB3022),
+                            shape: const StadiumBorder(),
+                            backgroundColor: const Color(0xFFDB3022),
                           ),
+                          child: const Text('Check'),
                         ),
                       ),
-                      SizedBox(height: 40.0),
+                      const SizedBox(height: 40.0),
                     ],
                   ),
                 ),
               ],
             ),
             Container(
-              height: MediaQuery.of(context).size.height - 427,
-              padding: EdgeInsets.all(20.0),
+              height: MediaQuery.of(context).size.height - 403,
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
+                    children: const [
                       Text(
                         'Sale',
                         style: TextStyle(
@@ -91,14 +89,14 @@ class _HomePageState extends State<HomePage> {
                       Text('View All'),
                     ],
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
+                  const SizedBox(height: 10.0),
+                  const Text(
                     "Super summer sale!",
                     style: TextStyle(
                       color: Color(0xFF9B9B9B),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   homeProvider.isLoading
                       ? Expanded(
                           child: Center(
@@ -133,15 +131,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height - 427,
-              padding: EdgeInsets.all(20.0),
+              height: MediaQuery.of(context).size.height - 403,
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
+                    children: const [
                       Text(
                         'New',
                         style: TextStyle(
@@ -152,14 +150,14 @@ class _HomePageState extends State<HomePage> {
                       Text('View All'),
                     ],
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
+                  const SizedBox(height: 10.0),
+                  const Text(
                     "You've never seen it before!",
                     style: TextStyle(
                       color: Color(0xFF9B9B9B),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   homeProvider.isLoading
                       ? Expanded(
                           child: Center(

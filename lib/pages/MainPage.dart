@@ -1,20 +1,14 @@
-import 'package:ecommerce_app/components/profile_page/MyOrders.dart';
 import 'package:ecommerce_app/pages/BagPage.dart';
 import 'package:ecommerce_app/pages/FavoritesPage.dart';
 import 'package:ecommerce_app/pages/HomePage.dart';
-import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:ecommerce_app/pages/ProfilePage.dart';
-import 'package:ecommerce_app/pages/Settings.dart';
 import 'package:ecommerce_app/pages/ShopPage.dart';
-import 'package:ecommerce_app/pages/ShopProductsPage.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:ecommerce_app/provider/MainProvider.dart';
-import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'dart:ui';
 
 class MainPage extends StatefulWidget {
   static const String routeName = '/main';
@@ -33,7 +27,7 @@ class _MainPageState extends State<MainPage>
     });
   }
 
-  List<Widget> _listPages = [
+  final List<Widget> _listPages = [
     HomePage(),
     ShopPage(),
     BagPage(),
@@ -113,7 +107,7 @@ class _MainPageState extends State<MainPage>
                       ),
                     ),
                   )
-                : SizedBox(),
+                : const SizedBox(),
       );
     });
   }

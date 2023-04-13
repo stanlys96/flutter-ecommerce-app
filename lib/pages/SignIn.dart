@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:ecommerce_app/api/ApiService.dart';
 import 'package:ecommerce_app/components/SocialIconBox.dart';
 import 'package:ecommerce_app/models/Login.dart';
@@ -7,6 +10,7 @@ import 'package:ecommerce_app/provider/MainProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignInPage extends StatefulWidget {
   static const String routeName = '/sign-in';
@@ -23,9 +27,9 @@ class _SignInPageState extends State<SignInPage> {
   ApiService apiService = ApiService();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
-  void handleSignIn(AuthProvider authProvider, MainProvider mainProvider,
-      BuildContext context) async {
+  void handleSignIn(AuthProvider authProvider, BuildContext context) async {
     authProvider.setLoading(true);
     try {
       LoginModel? result =
@@ -33,13 +37,14 @@ class _SignInPageState extends State<SignInPage> {
       authProvider.setLoading(false);
 
       if (result?.msg == 'success') {
+        final SharedPreferences prefs = await _prefs;
+        await prefs.setString("member", jsonEncode(result?.toJson()));
         emailController.clear();
         passwordController.clear();
         authProvider.setCurrentPage("Sign Up");
         if (mounted) {
           Navigator.of(context).pushNamed('/main');
         }
-
       }
       Navigator.of(context).pushNamed('/main');
     } catch (e) {
@@ -139,7 +144,7 @@ class _SignInPageState extends State<SignInPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          handleSignIn(authProvider, mainProvider, context);
+                          handleSignIn(authProvider, context);
                         },
                         style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(),

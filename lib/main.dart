@@ -5,6 +5,7 @@ import 'package:ecommerce_app/pages/ProductDetailPage.dart';
 import 'package:ecommerce_app/pages/SignIn.dart';
 import 'package:ecommerce_app/pages/SignUp.dart';
 import 'package:ecommerce_app/pages/UserAuthPage.dart';
+import 'package:ecommerce_app/provider/FavoritesProvider.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:ecommerce_app/provider/MainProvider.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
@@ -14,17 +15,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:developer';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
 void main() {
-  runApp(const MyApp());
-}
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.getInstance().then((value) {
+    bool _isLoggedIn;
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    String str = value.getString("member") ?? "";
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
+    if (str == null || str.isEmpty) {
+      _isLoggedIn = false;
+    } else {
+      _isLoggedIn = true;
+    }
+
+    runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (_) => ProfileProvider(),
@@ -41,13 +47,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => MainProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => FavoritesProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: AuthPage.routeName,
+        initialRoute: _isLoggedIn ? MainPage.routeName : AuthPage.routeName,
         routes: {
           AuthPage.routeName: (context) => AuthPage(),
           SignUpPage.routeName: (context) => SignUpPage(),
@@ -58,6 +67,6 @@ class MyApp extends StatelessWidget {
           OrderDetailsPage.routeName: (context) => OrderDetailsPage(),
         },
       ),
-    );
-  }
+    ));
+  });
 }

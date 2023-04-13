@@ -2,8 +2,10 @@ import 'package:ecommerce_app/components/profile_page/ProfileCategoryBox.dart';
 import 'package:ecommerce_app/provider/ProfileProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileMainPage extends StatelessWidget {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   @override
   Widget build(BuildContext context) {
     ProfileProvider profileProvider =
@@ -99,7 +101,9 @@ class ProfileMainPage extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: SizedBox(
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  final SharedPreferences prefs = await _prefs;
+                  await prefs.remove('member');
                   Navigator.of(context).pushNamed('/auth');
                 },
                 style: ElevatedButton.styleFrom(

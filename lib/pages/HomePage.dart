@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/components/home_page/ProductBox.dart';
 import 'package:ecommerce_app/models/Product.dart';
+import 'package:ecommerce_app/provider/FavoritesProvider.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -13,8 +14,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-        builder: (secondContext, homeProvider, child) {
+    return Consumer2<HomeProvider, FavoritesProvider>(
+        builder: (secondContext, homeProvider, favoritesProvider, child) {
       return SingleChildScrollView(
         child: Column(
           children: [
@@ -123,6 +124,9 @@ class _HomePageState extends State<HomePage> {
                                 index: index,
                                 totalCount: homeProvider.saleProducts.length,
                                 product: currentProduct,
+                                userId: homeProvider.userId,
+                                userFavorites:
+                                    homeProvider.currentUserFavorites ?? [],
                               );
                             },
                           ),
@@ -184,6 +188,9 @@ class _HomePageState extends State<HomePage> {
                                 index: index,
                                 totalCount: homeProvider.newProducts.length,
                                 product: currentProduct,
+                                userId: homeProvider.userId,
+                                userFavorites:
+                                    homeProvider.currentUserFavorites ?? [],
                               );
                             },
                           ),

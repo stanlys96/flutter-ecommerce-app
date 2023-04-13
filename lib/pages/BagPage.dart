@@ -1,8 +1,5 @@
-import 'package:ecommerce_app/components/bag_page/BagProductBox.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
-import 'package:ecommerce_app/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:lottie/lottie.dart';
 
 class BagPage extends StatelessWidget {
   @override
@@ -12,6 +9,9 @@ class BagPage extends StatelessWidget {
       children: [
         SingleChildScrollView(
           child: Container(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+            ),
             padding: const EdgeInsets.only(
               top: 16.0,
               right: 16.0,
@@ -37,17 +37,11 @@ class BagPage extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 16.0),
-                      BagProductBox(),
-                      const SizedBox(height: 32.0),
-                      BagProductBox(),
-                      const SizedBox(height: 32.0),
-                      BagProductBox(),
-                      const SizedBox(height: 32.0),
-                      BagProductBox(),
-                      const SizedBox(height: 32.0),
-                      BagProductBox(),
-                      const SizedBox(height: 32.0),
+                      Lottie.asset(
+                        'images/bag-empty.json',
+                        width: double.infinity,
+                      ),
+                      const Text('No items added to bag...'),
                     ],
                   ),
                 ),

@@ -11,6 +11,17 @@ class ProfileProvider extends ChangeNotifier {
 
   String currentPage = 'Profile';
 
+  String name = "Habibu";
+
+  String shippingAddress =
+      "3 Newbridge Court, Chino Hills, CA 91709, United States";
+
+  String paymentMethod = "Mastercard";
+
+  String paymentNumber = "3123 3123 3123 3947";
+
+  String status = "delivered";
+
   void setCurrentPage(String newValue, BuildContext context) async {
     if (!availablePages.contains(newValue)) {
       await Flushbar(
@@ -22,6 +33,11 @@ class ProfileProvider extends ChangeNotifier {
       return;
     }
     currentPage = newValue;
+    notifyListeners();
+  }
+
+  void setStatus(String newValue) {
+    status = newValue;
     notifyListeners();
   }
 }

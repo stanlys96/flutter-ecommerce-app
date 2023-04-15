@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:ecommerce_app/models/Product.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:flutter/material.dart';
@@ -128,6 +129,17 @@ class _FavoriteProductBoxState extends State<FavoriteProductBox> {
                                             homeProvider.userId,
                                             widget.currentProduct.id ?? 0);
                                         setIsLoading(false);
+
+                                        await Flushbar(
+                                          flushbarPosition:
+                                              FlushbarPosition.TOP,
+                                          title: "Success",
+                                          message:
+                                              "Successfully deleted favorite",
+                                          duration: const Duration(
+                                              milliseconds: 1500),
+                                          backgroundColor: Colors.green,
+                                        ).show(context);
                                       }
                                     },
                                     child: isLoading

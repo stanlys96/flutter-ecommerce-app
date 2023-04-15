@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 
 class OrderDetailBox extends StatelessWidget {
+  String imageUrl;
+  String name;
+  String subtitle;
+  String color;
+  String size;
+  int amount;
+  int price;
+
+  OrderDetailBox({
+    required this.imageUrl,
+    required this.name,
+    required this.subtitle,
+    required this.color,
+    required this.size,
+    required this.amount,
+    required this.price,
+  });
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,10 +45,10 @@ class OrderDetailBox extends StatelessWidget {
                 children: [
                   Container(
                     width: (MediaQuery.of(context).size.width - 32) * 0.30,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage('images/pullover.png'),
+                        image: AssetImage(imageUrl),
                       ),
                     ),
                   ),
@@ -48,14 +66,14 @@ class OrderDetailBox extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Pullover',
+                        Text(
+                          name,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16.0),
                         ),
                         const SizedBox(height: 5.0),
-                        const Text(
-                          'Mango',
+                        Text(
+                          subtitle,
                           style: TextStyle(
                             fontSize: 14.0,
                             color: Color(
@@ -67,14 +85,14 @@ class OrderDetailBox extends StatelessWidget {
                         Row(
                           children: [
                             RichText(
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: 'Color: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: 'Gray',
+                                    text: color,
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -85,14 +103,14 @@ class OrderDetailBox extends StatelessWidget {
                             ),
                             const SizedBox(width: 20.0),
                             RichText(
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: 'Size: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: 'L',
+                                    text: size,
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -109,14 +127,14 @@ class OrderDetailBox extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             RichText(
-                              text: const TextSpan(
+                              text: TextSpan(
                                 text: 'Units: ',
                                 style: TextStyle(
                                   color: Color(0xFF9B9B9B),
                                 ),
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: '1',
+                                    text: amount.toString(),
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
@@ -125,8 +143,8 @@ class OrderDetailBox extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const Text(
-                              '\$15',
+                            Text(
+                              '\$${price * amount}',
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 16.0,

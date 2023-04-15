@@ -1,4 +1,7 @@
+import 'package:ecommerce_app/api/ApiService.dart';
 import 'package:ecommerce_app/components/StarsDummy.dart';
+import 'package:ecommerce_app/components/input_text_dialog.dart';
+import 'package:ecommerce_app/models/AddToCart.dart';
 import 'package:ecommerce_app/models/Product.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,7 @@ class ProductDetailsPage extends StatefulWidget {
 }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  ApiService apiService = ApiService();
   bool isLoading = false;
 
   void setIsLoading(bool newValue) {
@@ -21,9 +25,19 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     });
   }
 
+  TextEditingController numberController = TextEditingController();
+
+  Future<String> addToCart(userId, productId, amount) async {
+    AddToCartResponse? result =
+        await apiService.addToCart(userId, productId, amount);
+    return result?.msg ?? "";
+  }
+
   @override
   Widget build(BuildContext context) {
     Product product = ModalRoute.of(context)!.settings.arguments as Product;
+    HomeProvider homeProvider =
+        Provider.of<HomeProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -79,59 +93,20 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Container(
-                                width:
-                                    (MediaQuery.of(context).size.width - 20) *
-                                        0.4,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1.0,
-                                    color: const Color.fromARGB(50, 0, 0, 0),
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(16.0),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      'Size',
-                                    ),
-                                    Icon(
-                                      Icons.arrow_drop_down,
-                                    ),
-                                  ],
+                              Text(
+                                'Size: ${product.size ?? ""}',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Container(
-                                width:
-                                    (MediaQuery.of(context).size.width - 20) *
-                                        0.4,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 1.0,
-                                    color: const Color.fromARGB(50, 0, 0, 0),
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(16.0),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.all(10.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      'Black',
-                                    ),
-                                    Icon(
-                                      Icons.arrow_drop_down,
-                                    ),
-                                  ],
+                              Text(
+                                'Color: ${product.color ?? ""}',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                               InkWell(
@@ -245,7 +220,19 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                             ],
                           ),
                           const SizedBox(height: 10.0),
-                          const StarsDummy(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const StarsDummy(),
+                              Text(
+                                'Stock: ${product.stock ?? ""}',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                           const SizedBox(height: 10.0),
                           Text(
                             product.description ?? "",
@@ -272,7 +259,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              displayTextInputDialog(context, numberController,
+                  product.stock ?? 0, product.name ?? "", (stock) async {
+                String result = await addToCart(
+                    homeProvider.userId, product.id, int.tryParse(stock) ?? 0);
+                if (result != "success") {
+                  return false;
+                }
+                homeProvider.refetchUserCart();
+                return true;
+              });
+            },
             style: ElevatedButton.styleFrom(
               shape: const StadiumBorder(),
               backgroundColor: const Color(0xFFDB3022),

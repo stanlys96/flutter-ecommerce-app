@@ -42,43 +42,59 @@ class _FavoritesPageState extends State<FavoritesPage> {
                 decoration: const BoxDecoration(
                   color: Color(0xFFF9F9F9),
                 ),
-                child: (homeProvider.currentUserFavorites ?? []).isEmpty
-                    ? Column(
-                        children: [
-                          Lottie.asset(
-                            'images/favorites-empty.json',
-                            width: double.infinity,
-                          ),
-                          const Text('No favorites added yet...'),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          for (UserFavorite userFavorite
-                              in (homeProvider.currentUserFavorites ?? [])) ...[
-                            FavoriteProductBox(
-                              currentProduct: Product(
-                                id: userFavorite.productId,
-                                name: userFavorite.name,
-                                category: userFavorite.category,
-                                subtitle: userFavorite.subtitle,
-                                price: userFavorite.price,
-                                discount: userFavorite.discount,
-                                size: userFavorite.size,
-                                color: userFavorite.color,
-                                description: userFavorite.description,
-                                rating: userFavorite.rating,
-                                reviews: userFavorite.reviews,
-                                stock: userFavorite.stock,
-                                imageUrl: userFavorite.imageUrl,
-                                imageDetailUrl: userFavorite.imageDetailUrl,
-                                productType: userFavorite.productType,
+                child: homeProvider.isLoading
+                    ? Expanded(
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Lottie.asset(
+                                'images/loading-2.json',
+                                width: 200.0,
+                                height: 200.0,
                               ),
-                            ),
-                            SizedBox(height: 32.0),
-                          ],
-                        ],
-                      ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : (homeProvider.currentUserFavorites ?? []).isEmpty
+                        ? Column(
+                            children: [
+                              Lottie.asset(
+                                'images/favorites-empty.json',
+                                width: double.infinity,
+                              ),
+                              const Text('No favorites added yet...'),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              for (UserFavorite userFavorite
+                                  in (homeProvider.currentUserFavorites ??
+                                      [])) ...[
+                                FavoriteProductBox(
+                                  currentProduct: Product(
+                                    id: userFavorite.productId,
+                                    name: userFavorite.name,
+                                    category: userFavorite.category,
+                                    subtitle: userFavorite.subtitle,
+                                    price: userFavorite.price,
+                                    discount: userFavorite.discount,
+                                    size: userFavorite.size,
+                                    color: userFavorite.color,
+                                    description: userFavorite.description,
+                                    rating: userFavorite.rating,
+                                    reviews: userFavorite.reviews,
+                                    stock: userFavorite.stock,
+                                    imageUrl: userFavorite.imageUrl,
+                                    imageDetailUrl: userFavorite.imageDetailUrl,
+                                    productType: userFavorite.productType,
+                                  ),
+                                ),
+                                SizedBox(height: 32.0),
+                              ],
+                            ],
+                          ),
               ),
             ],
           ),

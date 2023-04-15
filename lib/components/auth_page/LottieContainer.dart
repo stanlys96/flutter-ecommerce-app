@@ -71,9 +71,6 @@ class _LottieContainerState extends State<LottieContainer> {
           InkWell(
             onTap: () async {
               await authProvider.setSuccess(false);
-              if (mounted && authProvider.currentPage == "Sign Up") {
-                authProvider.setCurrentPage("Sign In");
-              }
             },
             child: Container(
               margin: const EdgeInsets.all(10.0),

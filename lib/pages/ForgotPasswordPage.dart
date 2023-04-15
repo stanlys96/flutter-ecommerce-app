@@ -20,66 +20,68 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    return Visibility(
-      visible: authProvider.currentPage == 'Forgot Password',
-      child: Opacity(
-        opacity: 1 - (widget.blurController?.value ?? 0),
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsetsDirectional.all(20.0),
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Color(0xFFf9f9f9),
-            ),
-            height: MediaQuery.of(context).size.height - 56.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const Text(
-                        'Forgot Password',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      const Text(
-                          'Please, enter your email address. You will receive a link to create a new password via email.'),
-                      const SizedBox(height: 10.0),
-                      InputBox(
-                        title: "Email",
-                        controller: emailController,
-                        placeholder: "Enter Email",
-                      ),
-                      const SizedBox(height: 20.0),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: const Text('Send'),
-                          style: ElevatedButton.styleFrom(
-                            shape: const StadiumBorder(),
-                            backgroundColor: const Color(0xFFDB3022),
+    return Consumer<AuthProvider>(
+        builder: (secondContext, authProvider, child) {
+      return Visibility(
+        visible: authProvider.currentPage == 'Forgot Password',
+        child: Opacity(
+          opacity: 1 - (widget.blurController?.value ?? 0),
+          child: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsetsDirectional.all(20.0),
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Color(0xFFf9f9f9),
+              ),
+              height: MediaQuery.of(context).size.height - 56.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const Text(
+                          'Forgot Password',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        const Text(
+                            'Please, enter your email address. You will receive a link to create a new password via email.'),
+                        const SizedBox(height: 10.0),
+                        InputBox(
+                          title: "Email",
+                          controller: emailController,
+                          placeholder: "Enter Email",
+                        ),
+                        const SizedBox(height: 20.0),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Send'),
+                            style: ElevatedButton.styleFrom(
+                              shape: const StadiumBorder(),
+                              backgroundColor: Colors.blueAccent,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

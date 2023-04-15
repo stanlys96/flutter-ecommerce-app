@@ -24,6 +24,11 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setTheCurrentPage(String newValue) {
+    currentPage = newValue;
+    notifyListeners();
+  }
+
   void switchState() {
     currentPage = page;
     page = "Idle";

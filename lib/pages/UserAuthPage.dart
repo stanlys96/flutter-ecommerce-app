@@ -125,6 +125,7 @@ class _AuthPageState extends State<AuthPage>
           leading: authProvider.currentPage != 'Sign Up'
               ? InkWell(
                   onTap: () {
+                    if (authProvider.loading) return;
                     goBack(authProvider, context);
                   },
                   child: const Icon(
@@ -134,7 +135,7 @@ class _AuthPageState extends State<AuthPage>
               : null,
           iconTheme: const IconThemeData(color: Colors.white),
           title: const Text("Fashionee"),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blueGrey,
           // elevation: 0,
         ),
         body: Stack(

@@ -120,8 +120,12 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> refetchAll() async {
+  Future<void> refetchAll({bool relogin = false}) async {
     setIsLoading(true);
+    if (relogin) {
+      LoginModel? login = await getUser();
+      userId = login?.userId ?? -1;
+    }
     refetchProducts();
     refetchUserCart();
     refetchFavorites();

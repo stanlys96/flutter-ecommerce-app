@@ -7,6 +7,7 @@ import 'package:ecommerce_app/models/DeleteFavorite.dart';
 import 'package:ecommerce_app/models/Login.dart';
 import 'package:ecommerce_app/models/OrderDetail.dart';
 import 'package:ecommerce_app/models/Product.dart';
+import 'package:ecommerce_app/models/Register.dart';
 import 'package:ecommerce_app/models/UpdateCart.dart';
 import 'package:ecommerce_app/models/UserCart.dart';
 import 'package:ecommerce_app/models/UserFavorites.dart';
@@ -14,20 +15,22 @@ import 'package:ecommerce_app/models/UserFavorites.dart';
 class ApiService {
   Dio dio = Dio();
 
-  Future<void> register(name, email, password) async {
+  Future<RegisterResponse?> register(name, email, password) async {
     try {
       Response response = await dio.post(
         'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/users/register',
+        // 'http://localhost:3001/flutter-ecommerce/users/register',
         data: {"name": name, "email": email, "password": password},
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
       );
-      print(response);
-      print("???");
+      RegisterResponse result = RegisterResponse.fromJson(response.data);
+      return result;
     } catch (e) {
       print(e);
     }
+    return null;
   }
 
   Future<LoginModel?> login(email, password) async {

@@ -14,3 +14,9 @@ Future<LoginModel?> getUser() {
     }
   });
 }
+
+bool checkEmail(String input) {
+  return RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(input);
+}

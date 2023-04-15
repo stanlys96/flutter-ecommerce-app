@@ -44,6 +44,7 @@ Future<void> displayTextInputDialog(
               textColor: Colors.white,
               child: const Text('CANCEL'),
               onPressed: () {
+                if (!canPress) return;
                 _textFieldController.clear();
                 Flushbar? flushbar = flushBarKey.currentWidget as Flushbar?;
                 if (flushbar != null) {
@@ -69,6 +70,7 @@ Future<void> displayTextInputDialog(
                     ),
               onPressed: () async {
                 if (!canPress) return;
+                FocusScope.of(context).unfocus();
                 canPress = false;
                 String total = _textFieldController.text;
                 String title = "";

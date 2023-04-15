@@ -116,6 +116,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                     setIsLoading(true);
                                     await homeProvider.addToFavorite(
                                         homeProvider.userId, product.id ?? 0);
+
                                     setIsLoading(false);
                                   } else {
                                     bool isConfirmed = false;

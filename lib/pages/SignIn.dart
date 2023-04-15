@@ -144,6 +144,7 @@ class _SignInPageState extends State<SignInPage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
+                          FocusScope.of(context).unfocus();
                           handleSignIn(authProvider, context);
                         },
                         style: ElevatedButton.styleFrom(

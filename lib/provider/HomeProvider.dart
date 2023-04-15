@@ -65,6 +65,11 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setIsLoading(bool newValue) {
+    isLoading = newValue;
+    notifyListeners();
+  }
+
   Future<void> refetchFavorites() async {
     UserFavoritesModel? userFavorites =
         await apiService.getUserFavorites(userId);
@@ -116,9 +121,11 @@ class HomeProvider extends ChangeNotifier {
   }
 
   Future<void> refetchAll() async {
+    setIsLoading(true);
     refetchProducts();
     refetchUserCart();
     refetchFavorites();
     refetchOrders();
+    setIsLoading(false);
   }
 }

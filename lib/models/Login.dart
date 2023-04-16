@@ -3,14 +3,16 @@ class LoginModel {
   String? email;
   String? token;
   int? userId;
+  String? name;
 
-  LoginModel({this.msg, this.email, this.token, this.userId});
+  LoginModel({this.msg, this.email, this.token, this.userId, this.name});
 
   LoginModel.fromJson(Map<String, dynamic> json) {
     msg = json['msg'];
     email = json['email'];
     token = json['token'];
     userId = json['user_id'];
+    name = json['name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,6 +21,7 @@ class LoginModel {
     data['email'] = this.email;
     data['token'] = this.token;
     data['user_id'] = this.userId;
+    data['name'] = this.name;
     return data;
   }
 }

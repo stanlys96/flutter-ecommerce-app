@@ -13,6 +13,8 @@ class HomeProvider extends ChangeNotifier {
   bool isLoading = false;
   ApiService apiService = ApiService();
   int userId = -1;
+  String email = "";
+  String name = "";
 
   List<Product> allProducts = [];
 
@@ -33,6 +35,8 @@ class HomeProvider extends ChangeNotifier {
     try {
       LoginModel? login = await getUser();
       userId = login?.userId ?? -1;
+      email = login?.email ?? "";
+      name = login?.name ?? "";
       ProductResponseModel? result = await apiService.getAllProducts();
       UserCartResponseModel? userCartResult =
           await apiService.getUserCart(userId);
@@ -125,6 +129,8 @@ class HomeProvider extends ChangeNotifier {
     if (relogin) {
       LoginModel? login = await getUser();
       userId = login?.userId ?? -1;
+      email = login?.email ?? "";
+      name = login?.name ?? "";
     }
     refetchProducts();
     refetchUserCart();

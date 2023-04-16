@@ -5,12 +5,14 @@ class InputBox extends StatelessWidget {
   final String placeholder;
   final bool isPassword;
   final TextEditingController controller;
+  final bool disabled;
 
   InputBox({
     required this.title,
     this.placeholder = '',
     this.isPassword = false,
     required this.controller,
+    this.disabled = false,
   });
 
   @override
@@ -45,6 +47,10 @@ class InputBox extends StatelessWidget {
             height: 5.0,
           ),
           TextField(
+            readOnly: disabled,
+            style: TextStyle(
+              color: disabled ? Colors.grey : Colors.black,
+            ),
             controller: controller,
             obscureText: isPassword,
             decoration: InputDecoration(

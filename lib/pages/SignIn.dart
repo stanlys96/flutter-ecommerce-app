@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:another_flushbar/flushbar.dart';
 import 'package:ecommerce_app/api/ApiService.dart';
@@ -8,7 +7,6 @@ import 'package:ecommerce_app/models/Login.dart';
 import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
 import 'package:ecommerce_app/provider/HomeProvider.dart';
-import 'package:ecommerce_app/provider/MainProvider.dart';
 import 'package:ecommerce_app/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

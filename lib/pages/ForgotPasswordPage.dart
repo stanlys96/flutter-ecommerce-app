@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:ecommerce_app/components/InputBox.dart';
 import 'package:ecommerce_app/provider/AuthProvider.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () async {
+                              FocusScope.of(context).unfocus();
+                              await Flushbar(
+                                flushbarPosition: FlushbarPosition.TOP,
+                                title: "Not available",
+                                message: "Service not available yet",
+                                duration: const Duration(milliseconds: 1500),
+                                backgroundColor: Colors.orange,
+                              ).show(context);
+                            },
                             child: const Text('Send'),
                             style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),

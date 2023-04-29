@@ -266,7 +266,7 @@ class _BagProductBoxState extends State<BagProductBox> {
                                 ],
                               ),
                               Text(
-                                '\$${((int.tryParse(widget.product.price ?? "0") ?? 0) - (int.tryParse(widget.product.discount ?? "0") ?? 0)) * widget.amount}',
+                                '\$${((widget.product.price ?? 0) - (widget.product.discount ?? 0)) * widget.amount}',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 16.0,

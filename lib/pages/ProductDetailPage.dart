@@ -211,7 +211,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                                 ],
                               ),
                               Text(
-                                '\$${((int.tryParse(product.price ?? "0") ?? 0) - (int.tryParse(product.discount ?? "0") ?? 0)).toString()}.00',
+                                '\$${((product.price ?? 0) - (product.discount ?? 0)).toString()}.00',
                                 style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 24.0,

@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:ecommerce_app/models/AddFavorite.dart';
 import 'package:ecommerce_app/models/AddOrder.dart';
 import 'package:ecommerce_app/models/AddToCart.dart';
+import 'package:ecommerce_app/models/AdminChats.dart';
+import 'package:ecommerce_app/models/Chat.dart';
 import 'package:ecommerce_app/models/DeleteCart.dart';
 import 'package:ecommerce_app/models/DeleteFavorite.dart';
 import 'package:ecommerce_app/models/Login.dart';
@@ -18,7 +20,7 @@ class ApiService {
   Future<RegisterResponse?> register(name, email, password) async {
     try {
       Response response = await dio.post(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/users/register',
+        'http://localhost:3001/flutter-ecommerce/users/register',
         // 'http://localhost:3001/flutter-ecommerce/users/register',
         data: {"name": name, "email": email, "password": password},
         options: Options(
@@ -36,7 +38,7 @@ class ApiService {
   Future<LoginModel?> login(email, password) async {
     try {
       Response response = await dio.post(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/users/login',
+        'http://localhost:3001/flutter-ecommerce/users/login',
         data: {"email": email, "password": password},
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
@@ -54,7 +56,7 @@ class ApiService {
   Future<ProductResponseModel?> getAllProducts() async {
     try {
       Response response = await dio.get(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/products/getAllProducts',
+        'http://localhost:3001/flutter-ecommerce/products/getAllProducts',
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
@@ -71,7 +73,7 @@ class ApiService {
   Future<ProductResponseModel?> getProductsByCategory(String category) async {
     try {
       Response response = await dio.get(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/products/getProducts/$category',
+        'http://localhost:3001/flutter-ecommerce/products/getProducts/$category',
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
@@ -88,7 +90,7 @@ class ApiService {
   Future<UserFavoritesModel?> getUserFavorites(int userId) async {
     try {
       Response response = await dio.get(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/favorites/getFavorites/$userId',
+        'http://localhost:3001/flutter-ecommerce/favorites/getFavorites/$userId',
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
@@ -104,7 +106,7 @@ class ApiService {
   Future<AddFavoriteResponse?> addToFavorites(int userId, int productId) async {
     try {
       Response response = await dio.post(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/favorites/addToFavorites',
+        'http://localhost:3001/flutter-ecommerce/favorites/addToFavorites',
         data: {"user_id": userId, "product_id": productId},
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
@@ -121,7 +123,7 @@ class ApiService {
       int userId, int productId) async {
     try {
       Response response = await dio.delete(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/favorites/deleteFavorite',
+        'http://localhost:3001/flutter-ecommerce/favorites/deleteFavorite',
         data: {
           "user_id": userId,
           "product_id": productId,
@@ -142,7 +144,7 @@ class ApiService {
       int userId, int productId, int amount) async {
     try {
       Response response = await dio.post(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/cart/addToCart',
+        'http://localhost:3001/flutter-ecommerce/cart/addToCart',
         data: {
           "user_id": userId,
           "product_id": productId,
@@ -162,7 +164,7 @@ class ApiService {
   Future<UserCartResponseModel?> getUserCart(int userId) async {
     try {
       Response response = await dio.get(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/cart/getCart/$userId',
+        'http://localhost:3001/flutter-ecommerce/cart/getCart/$userId',
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
@@ -178,7 +180,7 @@ class ApiService {
   Future<OrderDetailResponseModel?> getUserOrders(int userId) async {
     try {
       Response response = await dio.get(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/orders/getOrders/$userId',
+        'http://localhost:3001/flutter-ecommerce/orders/getOrders/$userId',
         options: Options(
           contentType: Headers.formUrlEncodedContentType,
         ),
@@ -195,7 +197,7 @@ class ApiService {
       int userId, int productId, int amount) async {
     try {
       Response response = await dio.put(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/cart/updateCart',
+        'http://localhost:3001/flutter-ecommerce/cart/updateCart',
         data: {
           "user_id": userId,
           "product_id": productId,
@@ -215,7 +217,7 @@ class ApiService {
   Future<DeleteCartResponse?> deleteCart(int userId, int productId) async {
     try {
       Response response = await dio.delete(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/cart/deleteCart',
+        'http://localhost:3001/flutter-ecommerce/cart/deleteCart',
         data: {
           "user_id": userId,
           "product_id": productId,
@@ -234,7 +236,7 @@ class ApiService {
   Future<DeleteCartResponse?> deleteAllCart(int userId) async {
     try {
       Response response = await dio.delete(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/cart/deleteAllCart',
+        'http://localhost:3001/flutter-ecommerce/cart/deleteAllCart',
         data: {
           "user_id": userId,
         },
@@ -247,6 +249,7 @@ class ApiService {
     } catch (e) {
       print(e);
     }
+    return null;
   }
 
   Future<AddOrderResponse?> addOrder(
@@ -264,7 +267,7 @@ class ApiService {
       int userId) async {
     try {
       Response response = await dio.post(
-        'https://ecommerce-furniture.herokuapp.com/flutter-ecommerce/orders/addOrder',
+        'http://localhost:3001/flutter-ecommerce/orders/addOrder',
         // 'http://localhost:3001/flutter-ecommerce/orders/addOrder',
         data: {
           "order_number": orderNumber,
@@ -289,5 +292,31 @@ class ApiService {
     } catch (e) {
       print(e);
     }
+    return null;
+  }
+
+  Future<ChatResponseModel?> getUserChat(int userId) async {
+    try {
+      Response response = await dio
+          .get('http://localhost:3001/flutter-ecommerce/chat/getChat/$userId');
+      ChatResponseModel result = ChatResponseModel.fromJson(response.data);
+      return result;
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
+
+  Future<AdminChatsResponseModel?> getAdminChats(int userId) async {
+    try {
+      Response response = await dio.get(
+          'http://localhost:3001/flutter-ecommerce/users/getAdminChats/$userId');
+      AdminChatsResponseModel result =
+          AdminChatsResponseModel.fromJson(response.data);
+      return result;
+    } catch (e) {
+      print(e);
+    }
+    return null;
   }
 }

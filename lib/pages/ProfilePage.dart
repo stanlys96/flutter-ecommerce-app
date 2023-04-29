@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/components/profile_page/MyChats.dart';
 import 'package:ecommerce_app/components/profile_page/MyOrders.dart';
 import 'package:ecommerce_app/components/profile_page/ProfileMainPage.dart';
 import 'package:ecommerce_app/pages/Settings.dart';
@@ -21,6 +22,8 @@ class _ProfilePageState extends State<ProfilePage> {
         return Settings();
       } else if (profileProvider.currentPage == "My Orders") {
         return MyOrders();
+      } else if (profileProvider.currentPage == "My Chats") {
+        return MyChats();
       } else {
         return const SizedBox();
       }

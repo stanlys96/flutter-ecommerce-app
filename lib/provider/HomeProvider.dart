@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/api/ApiService.dart';
 import 'package:ecommerce_app/models/AddFavorite.dart';
+import 'package:ecommerce_app/models/AdminChats.dart';
+import 'package:ecommerce_app/models/Chat.dart';
 import 'package:ecommerce_app/models/DeleteFavorite.dart';
 import 'package:ecommerce_app/models/Login.dart';
 import 'package:ecommerce_app/models/OrderDetail.dart';
@@ -15,6 +17,7 @@ class HomeProvider extends ChangeNotifier {
   int userId = -1;
   String email = "";
   String name = "";
+  bool admin = false;
 
   List<Product> allProducts = [];
 
@@ -25,6 +28,8 @@ class HomeProvider extends ChangeNotifier {
 
   List<UserFavorite>? currentUserFavorites = [];
   List<OrderDetail>? currentUserOrders = [];
+  List<Chat>? currentUserChat = [];
+  List<AdminChat>? adminChats = [];
 
   HomeProvider() {
     init();
@@ -37,6 +42,7 @@ class HomeProvider extends ChangeNotifier {
       userId = login?.userId ?? -1;
       email = login?.email ?? "";
       name = login?.name ?? "";
+      admin = login?.admin ?? false;
       ProductResponseModel? result = await apiService.getAllProducts();
       UserCartResponseModel? userCartResult =
           await apiService.getUserCart(userId);
@@ -45,6 +51,19 @@ class HomeProvider extends ChangeNotifier {
 
       OrderDetailResponseModel? userOrders =
           await apiService.getUserOrders(userId);
+
+      ChatResponseModel? userChat = await apiService.getUserChat(userId);
+
+      if (admin) {
+        AdminChatsResponseModel? result =
+            await apiService.getAdminChats(userId);
+        adminChats = result?.data ?? [];
+      }
+
+      currentUserChat = userChat?.data ?? [];
+      (currentUserChat ?? []).sort((a, b) {
+        return (a.messageSent ?? "").compareTo(b.messageSent ?? "");
+      });
 
       currentUserFavorites = userFavorites?.data ?? [];
 
@@ -124,6 +143,23 @@ class HomeProvider extends ChangeNotifier {
     }
   }
 
+  Future<void> refetchUserChat(int userId) async {
+    ChatResponseModel? result = await apiService.getUserChat(userId);
+    if (result?.msg == "success") {
+      currentUserChat = result?.data ?? [];
+      (currentUserChat ?? []).sort((a, b) {
+        return (a.messageSent ?? "").compareTo(b.messageSent ?? "");
+      });
+    }
+    notifyListeners();
+  }
+
+  Future<void> refetchAdminChats(int userId) async {
+    AdminChatsResponseModel? result = await apiService.getAdminChats(userId);
+    adminChats = result?.data ?? [];
+    notifyListeners();
+  }
+
   Future<void> refetchAll({bool relogin = false}) async {
     setIsLoading(true);
     if (relogin) {
@@ -131,6 +167,10 @@ class HomeProvider extends ChangeNotifier {
       userId = login?.userId ?? -1;
       email = login?.email ?? "";
       name = login?.name ?? "";
+      admin = login?.admin ?? false;
+    }
+    if (admin) {
+      refetchAdminChats(userId);
     }
     refetchProducts();
     refetchUserCart();

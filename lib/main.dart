@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/pages/ChatPage.dart';
 import 'package:ecommerce_app/pages/CheckOutPage.dart';
 import 'package:ecommerce_app/pages/ForgotPasswordPage.dart';
 import 'package:ecommerce_app/pages/MainPage.dart';
@@ -69,6 +70,7 @@ void main() {
           OrderDetailsPage.routeName: (context) => OrderDetailsPage(),
           CheckOutPage.routeName: (context) => CheckOutPage(),
           OrderSuccess.routeName: (context) => OrderSuccess(),
+          ChatPage.routeName: (context) => ChatPage()
         },
       ),
     ));

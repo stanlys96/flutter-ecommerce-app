@@ -43,9 +43,8 @@ class _CheckOutPageState extends State<CheckOutPage> {
         builder: (secondContext, homeProvider, profileProvider, child) {
       int total = 0;
       homeProvider.userCart?.forEach((element) {
-        total += (element.amount ?? 0) *
-            ((int.tryParse(element.price ?? "0") ?? 0) -
-                (int.tryParse(element.discount ?? "0") ?? 0));
+        total += ((element.amount ?? 0) * (element.price ?? 0)) -
+            (element.discount ?? 0);
       });
       return Scaffold(
         appBar: AppBar(

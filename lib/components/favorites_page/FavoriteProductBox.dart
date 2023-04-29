@@ -213,7 +213,7 @@ class _FavoriteProductBoxState extends State<FavoriteProductBox> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    '\$${((int.tryParse(widget.currentProduct.price ?? "0") ?? 0) - (int.tryParse(widget.currentProduct.discount ?? "0") ?? 0)).toString()}',
+                                    '\$${((widget.currentProduct.price ?? 0) - (widget.currentProduct.discount ?? 0)).toString()}',
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 14.0),

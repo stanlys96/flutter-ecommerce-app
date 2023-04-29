@@ -47,6 +47,7 @@ class _SignInPageState extends State<SignInPage> {
         final SharedPreferences prefs = await _prefs;
 
         await prefs.setString("member", jsonEncode(result?.toJson()));
+        print(result?.toJson());
         await homeProvider.refetchAll(relogin: true);
         emailController.clear();
         passwordController.clear();

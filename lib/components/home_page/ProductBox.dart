@@ -193,7 +193,7 @@ class _ProductBoxState extends State<ProductBox> {
                   ),
                   const SizedBox(width: 5.0),
                   Text(
-                    '\$${((int.tryParse(widget.product.price ?? "0") ?? 0) - (int.tryParse(widget.product.discount ?? "0") ?? 0)).toString()}',
+                    '\$${((widget.product.price ?? 0) - (widget.product.discount ?? 0)).toString()}',
                     style: const TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,

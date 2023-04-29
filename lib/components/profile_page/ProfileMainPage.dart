@@ -64,6 +64,15 @@ class ProfileMainPage extends StatelessWidget {
                 ],
               ),
             ),
+            homeProvider.admin
+                ? ProfileCategoryBox(
+                    title: 'My Chats',
+                    subTitle: '1 Chat',
+                    setCurrentPage: () {
+                      profileProvider.setCurrentPage("My Chats", context);
+                    },
+                  )
+                : const SizedBox(),
             ProfileCategoryBox(
               title: 'My Orders',
               subTitle: '12 Orders',

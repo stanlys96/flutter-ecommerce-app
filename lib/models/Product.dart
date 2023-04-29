@@ -29,8 +29,8 @@ class Product {
   String? name;
   String? category;
   String? subtitle;
-  String? price;
-  String? discount;
+  int? price;
+  int? discount;
   String? size;
   String? color;
   String? description;

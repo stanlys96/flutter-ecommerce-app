@@ -6,7 +6,8 @@ class ProfileProvider extends ChangeNotifier {
     'Profile',
     'Settings',
     'My Orders',
-    'Order Details'
+    'Order Details',
+    'My Chats'
   ];
 
   String currentPage = 'Profile';
